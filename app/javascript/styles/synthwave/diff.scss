@@ -1,0 +1,20 @@
+.column {
+  > .scrollable {
+    background: $white;
+  }
+}
+
+.column-header {
+  border-top-left-radius: 5pt;
+  background: linear-gradient(0deg, rgba(255,253,194,1) 27%, $ui-primary-color 100%);
+  color: $black;
+  text-shadow: 0 0 2px $black;
+}
+
+.column-header__button {
+  background: lighten($ui-primary-color, 10%);
+}
+
+.columns-area {
+  background: $classic-base-color;
+}

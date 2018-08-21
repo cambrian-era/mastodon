@@ -84,6 +84,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider :virtualbox do |vb|
     vb.name = "mastodon"
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
     vb.customize ["modifyvm", :id, "--memory", "2048"]
 
     # Disable VirtualBox DNS proxy to skip long-delay IPv6 resolutions.
@@ -109,7 +110,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   if config.vm.networks.any? { |type, options| type == :private_network }
-    config.vm.synced_folder ".", "/vagrant", type: "nfs", mount_options: ['rw', 'vers=3', 'tcp']
+    config.vm.synced_folder "./", "/vagrant", type: "nfs", :mount_options => ['dmode=777','fmode=777']
   else
     config.vm.synced_folder ".", "/vagrant"
   end
