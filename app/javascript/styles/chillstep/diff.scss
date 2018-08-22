@@ -1,0 +1,31 @@
+body {
+    font-family: 'lato-sans-serif', 'mastodon-font-sans-serif', sans-serif;
+    font-size: 16px;
+}
+
+.drawer__header {
+    margin-bottom: 0;
+}
+
+.search {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 24px;
+}
+
+.drawer {
+    padding: 0;
+}
+
+.drawer:first-child {
+    padding-left: 0;
+}
+
+.column {
+    padding: 0;
+    width: 400px;
+}
+
+.status__wrapper {
+    margin-bottom: 10px;
+}
