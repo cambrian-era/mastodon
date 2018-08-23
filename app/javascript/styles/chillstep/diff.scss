@@ -29,3 +29,9 @@ body {
 .status__wrapper {
     margin-bottom: 10px;
 }
+
+.modal-layout__mastodon {
+    > * {
+      background: url('../images/radical_town_scale_title.svg') no-repeat left bottom / contain;
+    }
+  }
