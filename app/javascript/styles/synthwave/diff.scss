@@ -1,20 +1,48 @@
+body {
+  font-family: 'lato-sans-serif', 'mastodon-font-sans-serif', sans-serif;
+  font-size: 16px;
+}
+
+.ui {
+  background: $black;
+}
+
 .column {
-  > .scrollable {
-    background: $white;
-  }
+  width: 380px;
 }
 
 .column-header {
-  border-top-left-radius: 5pt;
-  background: linear-gradient(0deg, rgba(255,253,194,1) 27%, $ui-primary-color 100%);
   color: $black;
-  text-shadow: 0 0 2px $black;
+  border-top-left-radius: 10px;
+  background: rgb(255, 235, 119);
+  font-size: 20px;
+  font-style: italic;
+  border-bottom: 10px solid rgb(255, 227, 66);
+  box-shadow: 0 0 10px $ui-primary-color;
+  >button {
+    text-shadow: 0 0 2px $ui-primary-color;
+  }
+}
+
+.drawer__header {
+  background: $ui-primary-color;
+  text-shadow: 0 0 6px $white;
+  box-shadow: 0 0 10px rgb(255, 227, 66);
+}
+
+.drawer__tab {
+  color: $white;
 }
 
 .column-header__button {
+  color: $black;
   background: lighten($ui-primary-color, 10%);
 }
 
-.columns-area {
-  background: $classic-base-color;
+.compose-form__publish-button {
+  text-shadow: 0 0 6px $white;
+}
+
+.button {
+  text-shadow: 0 0 4px rgb(255, 235, 119);
 }
