@@ -337,6 +337,10 @@ Rails.application.routes.draw do
       get '/search', to: 'search#index', as: :search
     end
 
+    namespace :radical do
+      resource :gif_search, only: [:index, :create]
+    end
+
     namespace :web do
       resource :settings, only: [:update]
       resource :embed, only: [:create]

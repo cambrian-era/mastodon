@@ -776,7 +776,7 @@ en:
       unlisted: Unlisted
       unlisted_long: Everyone can see, but not listed on public timelines
   stream_entries:
-    pinned: Pinned toot
+    pinned: Sticky toot
     reblogged: boosted
     sensitive_content: Sensitive content
   terms:
