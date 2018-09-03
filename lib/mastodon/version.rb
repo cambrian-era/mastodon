@@ -21,7 +21,7 @@ module Mastodon
     end
 
     def flags
-      'rc1-radical'
+      'radical'
     end
 
     def to_a
