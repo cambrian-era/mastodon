@@ -110,7 +110,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   if config.vm.networks.any? { |type, options| type == :private_network }
-    config.vm.synced_folder "./", "/vagrant", type: "nfs", :mount_options => ['dmode=777','fmode=777']
+    config.vm.synced_folder ".", "/vagrant", type: "nfs", mount_options: ['rw', 'vers=3', 'tcp']
   else
     config.vm.synced_folder ".", "/vagrant"
   end

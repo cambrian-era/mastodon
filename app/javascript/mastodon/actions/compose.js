@@ -459,4 +459,4 @@ export function changeComposing(value) {
     type: COMPOSE_COMPOSING_CHANGE,
     value,
   };
-}
+};
