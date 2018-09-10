@@ -338,8 +338,10 @@ Rails.application.routes.draw do
       get '/search', to: 'search#index', as: :search
     end
 
+    # Radical Extensions
     namespace :radical do
-      resource :gif_search, only: [:index, :create]
+      resource :gif_search, only: [:show], controller: 'gif'
+      resource :gif_embed, only: [:create], controller: 'gif'
     end
 
     namespace :web do

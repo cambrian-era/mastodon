@@ -7,6 +7,7 @@ import Overlay from 'react-overlays/lib/Overlay';
 //import spring from 'react-motion/lib/spring';
 import detectPassiveEvents from 'detect-passive-events';
 import classNames from 'classnames';
+import { ImmutableList, ImmutableMap } from 'immutable';
 
 const listenerOptions = detectPassiveEvents.hasSupport ? { passive: true } : false;
 
@@ -19,9 +20,12 @@ class GifPickerMenu extends React.PureComponent {
 
   static propTypes = {
     onChange: PropTypes.func.isRequired,
-    onClose: PropTypes.func,
-    style: PropTypes.object,
-    placement: PropTypes.string,
+    onClose: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    style: PropTypes.object.isRequired,
+    previews: PropTypes.instanceOf(ImmutableList),
+    value: PropTypes.string,
   }
 
   static defaultProps = {
@@ -48,37 +52,137 @@ class GifPickerMenu extends React.PureComponent {
     }
   }
 
+  handleChange = e => {
+    this.props.onChange(e.target.value);
+  }
+
+  handleSubmit = e => {
+    this.props.onSubmit(this.props.value);
+    e.preventDefault();
+  }
+
   render() {
     const { style } = this.props;
 
     return(
       <div className={classNames('compose-form__gif-picker-dropdown')} ref={this.setRef} style={style}>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             autoComplete='off'
             className='compose-form__gif-picker-dropdown-input'
             type='text'
             name='value'
             placeholder='Search...'
-            onChange={this.props.onChange}
-            onSubmit={this.onSubmit}
+            onChange={this.handleChange}
           />
         </form>
+        <div className='compose-form__gif-picker-previews'>
+          <div className={classNames('compose-form__gif-picker-column-1', 'gif-preview-column')}>
+            { this.props.previews.map( (preview, n) => {
+              if (n % 2 === 0) {
+                return(
+                  <GifPreview
+                    key={preview.get('id')}
+                    src={preview.get('preview')}
+                    url={preview.get('url')}
+                    width={preview.get('width')}
+                    height={preview.get('height')}
+                  />
+                );
+              } else {
+                return null;
+              }
+            })}
+          </div>
+          <div className={classNames('compose-form__gif-picker-column-2', 'gif-preview-column')}>
+            { this.props.previews.map( (preview, n) => {
+              if (n % 2 === 1) {
+                return(
+                  <GifPreview
+                    key={preview.get('id')}
+                    src={preview.get('preview')}
+                    url={preview.get('url')}
+                    width={preview.get('width')}
+                    height={preview.get('height')}
+                    onSelect={this.props.onSelect}
+                  />
+                );
+              } else {
+                return null;
+              }
+            })}
+          </div>
+        </div>
       </div>
     );
   }
 
 }
 
-// class GifPreview extends React.PureComponent {
+class GifPreview extends React.PureComponent {
 
-// }
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    url: PropTypes.string.isRequired,
+    onSelect: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    id: '',
+    src: '',
+    width: 0,
+    height: 0,
+    url: '',
+  }
+
+  start = e => {
+    e.target.play();
+  }
+
+  stop = e => {
+    e.target.pause();
+    e.target.currentTime = 0;
+  }
+
+  handleSelect = () => {
+    this.props.onSelect(this.props.id);
+  }
+
+  render() {
+    return(
+      <video
+        muted loop
+        className='gif-picker-preview'
+        src={this.props.src}
+        width={this.props.width}
+        height={this.props.height}
+        onMouseEnter={this.start}
+        onMouseLeave={this.stop}
+        onClick={this.handleSelect}
+      />
+    );
+  }
+
+}
 
 export default class GifPickerDropdown extends React.PureComponent {
 
   static propTypes = {
     onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    previews: PropTypes.instanceOf(ImmutableList),
+    pagination: PropTypes.instanceOf(ImmutableMap),
   };
+
+  static defaultProps = {
+    value: '',
+  }
 
   state = {
     active: false,
@@ -102,6 +206,7 @@ export default class GifPickerDropdown extends React.PureComponent {
 
   onHideDropdown = () => {
     this.setState( { active: false } );
+    this.props.onClose();
   }
 
   handleKeyDown = e => {
@@ -127,9 +232,16 @@ export default class GifPickerDropdown extends React.PureComponent {
           show={active}
           placement={placement}
           target={this.findTarget}
-          onClose={this.onHideDropdown}
         >
-          <GifPickerMenu onChange={this.props.onChange} />
+          <GifPickerMenu
+            onChange={this.props.onChange}
+            onClose={this.onHideDropdown}
+            onSubmit={this.props.onSubmit}
+            onSelect={this.props.onSelect}
+            previews={this.props.previews}
+            pagination={this.props.pagination}
+            value={this.props.value}
+          />
         </Overlay>
       </div>
     );

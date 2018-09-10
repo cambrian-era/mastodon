@@ -1,9 +1,11 @@
 .compose-form__gif-picker-dropdown {
   position: absolute;
-  width: 320px;
-  height: 400px;
-  background: white;
+  width: 460px;
+  height: 440px;
+  background: $white;
   border-radius: 4px;
+  box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
+  margin-left: 40px;
 }
 
 .compose-form__gif-picker-dropdown-input {
@@ -12,8 +14,28 @@
   border-radius: 4px;
   font-family: inherit;
   border: 1px solid #dadada;
-  background: rgba(218, 218, 218, 0.3);
-  margin-top: 8px;
-  margin-left: 8px;
-  width: 80%;
+  background: rgba($ui-secondary-color, 0.3);
+  margin: 8px 8px auto;
+  width: 90%;
+}
+
+.compose-form__gif-picker-previews {
+  overflow-y: scroll;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 380px;
+  margin: 5px auto;
+}
+
+.gif-preview-column {
+  margin-top: 10px;
+  flex-grow: 1;
+}
+
+.gif-picker-preview {
+  background-color: $white;
+  display: inline;
+  margin: 5px;
+  flex: 0;
 }

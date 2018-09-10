@@ -28,6 +28,9 @@ import lists from './lists';
 import listEditor from './list_editor';
 import filters from './filters';
 
+// Radical Additions
+import gif_search from './gif_search';
+
 const reducers = {
   dropdown_menu,
   timelines,
@@ -57,6 +60,7 @@ const reducers = {
   lists,
   listEditor,
   filters,
+  gif_search,
 };
 
 export default combineReducers(reducers);

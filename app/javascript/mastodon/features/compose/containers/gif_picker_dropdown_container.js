@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import GifPickerDropdown from '../components/gif_picker_dropdown';
-import { changeGifSearch, fetchGifList } from '../../../actions/gif_search';
+import { changeGifSearch, fetchGifList, clearGifList, gifEmbed } from '../../../actions/gif_search';
 
 const mapStateToProps = state => ({
-  value: state.getIn(['gif_picker', 'value']),
-  submitted: state.getIn(['gif_picker', 'submitted']),
+  value: state.getIn(['gif_search', 'value']),
+  submitted: state.getIn(['gif_search', 'submitted']),
+  previews: state.getIn(['gif_search', 'data']),
+  pagination: state.getIn(['gif_search', 'pagination']),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,8 +14,16 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeGifSearch(value));
   },
 
-  onSubmit () {
-    dispatch(fetchGifList());
+  onSubmit (value) {
+    dispatch(fetchGifList(value));
+  },
+
+  onSelect (value) {
+    dispatch(gifEmbed(value));
+  },
+
+  onClose () {
+    dispatch(clearGifList());
   },
 
 });
