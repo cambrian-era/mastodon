@@ -1,6 +1,6 @@
 require 'http'
 
-class GifService < BaseService
+class GifSearchService < BaseService
   attr_accessor :query, :account
 
   def call(query)

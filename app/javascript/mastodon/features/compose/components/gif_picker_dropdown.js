@@ -63,7 +63,18 @@ class GifPickerMenu extends React.PureComponent {
 
   render() {
     const { style } = this.props;
-
+    let getPreview = (preview, n) => {
+      return (
+        <GifPreview
+          key={n}
+          id={preview.get('id')}
+          src={preview.get('preview')}
+          width={Number(preview.get('width'))}
+          height={Number(preview.get('height'))}
+          onSelect={this.props.onSelect}
+        />
+      );
+    };
     return(
       <div className={classNames('compose-form__gif-picker-dropdown')} ref={this.setRef} style={style}>
         <form onSubmit={this.handleSubmit}>
@@ -80,15 +91,7 @@ class GifPickerMenu extends React.PureComponent {
           <div className={classNames('compose-form__gif-picker-column-1', 'gif-preview-column')}>
             { this.props.previews.map( (preview, n) => {
               if (n % 2 === 0) {
-                return(
-                  <GifPreview
-                    key={preview.get('id')}
-                    src={preview.get('preview')}
-                    url={preview.get('url')}
-                    width={preview.get('width')}
-                    height={preview.get('height')}
-                  />
-                );
+                return(getPreview(preview, n));
               } else {
                 return null;
               }
@@ -97,16 +100,7 @@ class GifPickerMenu extends React.PureComponent {
           <div className={classNames('compose-form__gif-picker-column-2', 'gif-preview-column')}>
             { this.props.previews.map( (preview, n) => {
               if (n % 2 === 1) {
-                return(
-                  <GifPreview
-                    key={preview.get('id')}
-                    src={preview.get('preview')}
-                    url={preview.get('url')}
-                    width={preview.get('width')}
-                    height={preview.get('height')}
-                    onSelect={this.props.onSelect}
-                  />
-                );
+                return(getPreview(preview, n));
               } else {
                 return null;
               }
@@ -126,7 +120,6 @@ class GifPreview extends React.PureComponent {
     src: PropTypes.string.isRequired,
     width: PropTypes.number,
     height: PropTypes.number,
-    url: PropTypes.string.isRequired,
     onSelect: PropTypes.func.isRequired,
   }
 
