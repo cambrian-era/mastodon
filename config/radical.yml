@@ -1,0 +1,11 @@
+default: &default
+  giphy_api_key: <% ENV['GIPHY_API_KEY'] %>
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+
+test:
+  <<: *default

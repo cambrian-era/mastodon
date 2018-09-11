@@ -80,7 +80,7 @@ export function gifEmbed(id) {
         },
       }
     ).then((media) => {
-      dispatch(uploadComposeSuccess(media));
+      dispatch(uploadComposeSuccess(media.data));
       dispatch(gifEmbedSuccess(media));
       dispatch(clearGifList());
     }).catch(error => {

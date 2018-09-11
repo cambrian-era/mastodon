@@ -7,7 +7,7 @@ class GifSearchService < BaseService
     http = HTTP
       .accept(:json)
       .get("https://api.giphy.com/v1/gifs/search", :params => {
-        :api_key => "p3NmxfWoWbXRfJwtfBtehow5YGzTYc6J",
+        :api_key => ENV['GIPHY_API_KEY'],
         :q => query
       })
   end
