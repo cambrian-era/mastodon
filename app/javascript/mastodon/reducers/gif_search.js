@@ -6,6 +6,8 @@ import {
   GIF_LIST_FETCH_SUCCESS,
   GIF_SEARCH_CHANGE,
   GIF_SEARCH_CLEAR,
+  GIF_EMBED_SUCCESS,
+  GIF_SEARCH_ACTIVATE,
 } from '../actions/gif_search';
 
 const initialState = ImmutableMap({
@@ -22,11 +24,14 @@ const initialState = ImmutableMap({
     offset: 0,
   }),
   value: '',
+  active: false,
 });
 
 export default function gif_search(state = initialState, action) {
 
   switch (action.type) {
+  case GIF_SEARCH_ACTIVATE:
+    return state.set('active', action.active);
   case GIF_LIST_FETCH_SUCCESS:
     state = ImmutableMap({
       data: ConvertToImmutable(action.search_results.data.map( item => {
@@ -40,6 +45,7 @@ export default function gif_search(state = initialState, action) {
       })),
       pagination: ConvertToImmutable(action.search_results.pagination),
       value: '',
+      active: true,
     });
     return state;
   case GIF_SEARCH_CHANGE:

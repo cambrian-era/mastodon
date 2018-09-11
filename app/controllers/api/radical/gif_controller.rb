@@ -18,7 +18,12 @@ class Api::Radical::GifController < Api::BaseController
 
   def create
     gif = GifEmbedService.new.call(params[:data][:id])
-    @media = current_account.media_attachments.create!(gif)
+    params[:file] = gif
+    # TODO: Fix this
+    params.delete(:data)
+    params.delete(:gif)
+    
+    @media = current_account.media_attachments.create!(media_params)
     render json: @media, serializer: REST::MediaAttachmentSerializer
   rescue Paperclip::Errors::NotIdentifiedByImageMagickError
     render json: file_type_error, status: 422
