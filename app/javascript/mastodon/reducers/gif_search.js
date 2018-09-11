@@ -6,16 +6,17 @@ import {
   GIF_LIST_FETCH_SUCCESS,
   GIF_SEARCH_CHANGE,
   GIF_SEARCH_CLEAR,
-  GIF_EMBED_SUCCESS,
   GIF_SEARCH_ACTIVATE,
 } from '../actions/gif_search';
 
 const initialState = ImmutableMap({
   data: ImmutableList([
     ImmutableMap({
-      id: null,
+      id: '',
       url: '',
       preview: '',
+      width: 0,
+      height: 0,
     })]
   ),
   pagination: ImmutableMap({

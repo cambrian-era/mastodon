@@ -81,7 +81,7 @@ export function gifEmbed(id) {
       }
     ).then((media) => {
       dispatch(uploadComposeSuccess(media.data));
-      dispatch(gifEmbedSuccess(media));
+      dispatch(gifEmbedSuccess());
       dispatch(clearGifList());
     }).catch(error => {
       dispatch(gifEmbedFail(error));
@@ -89,10 +89,9 @@ export function gifEmbed(id) {
   };
 };
 
-export function gifEmbedSuccess(media) {
+export function gifEmbedSuccess() {
   return {
     type: GIF_EMBED_SUCCESS,
-    media,
   };
 }
 

@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import { injectIntl, defineMessages } from 'react-intl';
 import IconButton from '../../../components/icon_button';
 import Overlay from 'react-overlays/lib/Overlay';
-//import Motion from '../../ui/util/optional_motion';
-//import spring from 'react-motion/lib/spring';
 import detectPassiveEvents from 'detect-passive-events';
 import classNames from 'classnames';
-import { ImmutableList, ImmutableMap } from 'immutable';
+import { List as ImmutableList, Map as ImmutableMap } from 'immutable';
 
 const listenerOptions = detectPassiveEvents.hasSupport ? { passive: true } : false;
 
@@ -232,7 +229,16 @@ export default class GifPickerDropdown extends React.PureComponent {
 
     return(
       <div ref={this.setTargetRef} className='compose-form__gif-picker-button;' onKeyDown={this.handleKeyDown} >
-        <IconButton icon='film' title='Attach a GIF' onClick={this.onToggle} className='compose-form__upload-button-icon' size={18} inverted style={iconStyle} />
+        <IconButton
+          icon='film'
+          title='Attach a GIF'
+          onClick={this.onToggle}
+          className='compose-form__upload-button-icon'
+          size={18}
+          active={active}
+          inverted
+          style={iconStyle}
+        />
         <Overlay
           show={active}
           placement={placement}

@@ -28,7 +28,7 @@ import lists from './lists';
 import listEditor from './list_editor';
 import filters from './filters';
 
-// Radical Additions
+// Radical Town Extensions
 import gif_search from './gif_search';
 
 const reducers = {

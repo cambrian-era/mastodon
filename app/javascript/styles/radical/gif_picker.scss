@@ -1,6 +1,6 @@
 .compose-form__gif-picker-dropdown {
   position: absolute;
-  width: 460px;
+  width: 430px;
   height: 440px;
   background: $white;
   border-radius: 4px;
@@ -29,13 +29,17 @@
 }
 
 .gif-preview-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 10px;
   flex-grow: 1;
+  flex-basis: 50%;
 }
 
 .gif-picker-preview {
   background-color: $white;
-  display: inline;
-  margin: 5px;
+  display: block;
+  border: 3px solid;
   flex: 0;
 }
