@@ -11,7 +11,7 @@ class GifEmbedService < BaseService
       .get("http://api.giphy.com/v1/gifs/#{id}", :params => {
         :api_key => "p3NmxfWoWbXRfJwtfBtehow5YGzTYc6J"
       }) 
-    gif_url = JSON.parse(info_http.body().to_s)['data']['images']['downsized']['url']
+    gif_url = JSON.parse(info_http.body().to_s)['data']['images']['downsized_still']['url']
 
     media_http = HTTP
       .accept('image/*')
@@ -23,10 +23,10 @@ class GifEmbedService < BaseService
       file.syswrite(chunk)
     }
 
-    ActionDispatch::Http::UploadedFile.new(
+    gifDispatch = ActionDispatch::Http::UploadedFile.new(
       tempfile: file,
-      original_filename: gif_url.split('/').last,
-      content_type: media_http.mime_type
+      filename: gif_url.split('/').last,
+      type: media_http.mime_type
     )
   end
 end

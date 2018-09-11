@@ -168,7 +168,9 @@ export default class GifPickerDropdown extends React.PureComponent {
     onSubmit: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
+    activateSearch: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
+    active: PropTypes.bool.isRequired,
     previews: PropTypes.instanceOf(ImmutableList),
     pagination: PropTypes.instanceOf(ImmutableMap),
   };
@@ -178,11 +180,11 @@ export default class GifPickerDropdown extends React.PureComponent {
   }
 
   state = {
-    active: false,
-  };
+    placement: 'bottom',
+  }
 
   onToggle = () => {
-    if (this.state.active) {
+    if (this.props.active) {
       this.onHideDropdown();
     }
     else {
@@ -191,14 +193,12 @@ export default class GifPickerDropdown extends React.PureComponent {
   }
 
   onShowDropdown = () => {
-    this.setState( {
-      active: true,
-      placement: 'bottom',
-    });
+    this.setState( { placement: 'bottom' });
+    this.props.activateSearch(true);
   }
 
   onHideDropdown = () => {
-    this.setState( { active: false } );
+    this.props.activateSearch(false);
     this.props.onClose();
   }
 
@@ -216,7 +216,19 @@ export default class GifPickerDropdown extends React.PureComponent {
   }
 
   render() {
-    const { active, placement } = this.state;
+    const {
+      placement,
+    } = this.state;
+
+    const {
+      onChange,
+      onSubmit,
+      onSelect,
+      previews,
+      pagination,
+      value,
+      active,
+    } = this.props;
 
     return(
       <div ref={this.setTargetRef} className='compose-form__gif-picker-button;' onKeyDown={this.handleKeyDown} >
@@ -227,13 +239,13 @@ export default class GifPickerDropdown extends React.PureComponent {
           target={this.findTarget}
         >
           <GifPickerMenu
-            onChange={this.props.onChange}
+            onChange={onChange}
             onClose={this.onHideDropdown}
-            onSubmit={this.props.onSubmit}
-            onSelect={this.props.onSelect}
-            previews={this.props.previews}
-            pagination={this.props.pagination}
-            value={this.props.value}
+            onSubmit={onSubmit}
+            onSelect={onSelect}
+            previews={previews}
+            pagination={pagination}
+            value={value}
           />
         </Overlay>
       </div>
