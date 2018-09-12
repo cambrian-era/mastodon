@@ -1,6 +1,8 @@
 include ObfuscateFilename
 
 class Api::Radical::GifController < Api::BaseController
+  include ObfuscateFilename
+
   before_action -> { doorkeeper_authorize! :write, :'write:media' }
   before_action :require_user!
 
@@ -19,9 +21,8 @@ class Api::Radical::GifController < Api::BaseController
   def create
     gif = GifEmbedService.new.call(params[:data][:id])
     params[:file] = gif
-    # TODO: Fix this
-    params.delete(:data)
-    params.delete(:gif)
+
+    obfuscate_filename gif
     
     @media = current_account.media_attachments.create!(media_params)
     render json: @media, serializer: REST::MediaAttachmentSerializer

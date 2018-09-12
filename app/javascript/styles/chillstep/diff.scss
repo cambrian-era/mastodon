@@ -23,7 +23,12 @@ body {
 
 .column {
     padding: 0;
-    width: 380px;
+}
+
+@media screen and (min-width: 600px) {
+    .column {
+        width: 380px;
+    }
 }
 
 .status__wrapper {

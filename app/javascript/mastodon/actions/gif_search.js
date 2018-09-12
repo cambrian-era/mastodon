@@ -75,9 +75,7 @@ export function gifEmbed(id) {
   return (dispatch, getState) => {
     api(getState).post('/api/radical/gif_embed',
       {
-        data: {
-          id,
-        },
+        file: id,
       }
     ).then((media) => {
       dispatch(uploadComposeSuccess(media.data));

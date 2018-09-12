@@ -84,7 +84,7 @@ class GifPickerMenu extends React.PureComponent {
             onChange={this.handleChange}
           />
         </form>
-        <div className='compose-form__gif-picker-previews'>
+        <div className={classNames('compose-form__gif-picker-previews', 'scrollable')}>
           <div className={classNames('compose-form__gif-picker-column-1', 'gif-preview-column')}>
             { this.props.previews.map( (preview, n) => {
               if (n % 2 === 0) {
@@ -183,8 +183,7 @@ export default class GifPickerDropdown extends React.PureComponent {
   onToggle = () => {
     if (this.props.active) {
       this.onHideDropdown();
-    }
-    else {
+    } else {
       this.onShowDropdown();
     }
   }
@@ -213,9 +212,7 @@ export default class GifPickerDropdown extends React.PureComponent {
   }
 
   render() {
-    const {
-      placement,
-    } = this.state;
+    const { placement } = this.state;
 
     const {
       onChange,
