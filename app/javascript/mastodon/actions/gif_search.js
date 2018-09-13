@@ -35,7 +35,7 @@ export function clearGifList() {
   };
 }
 
-export function fetchGifList(query, offset) {
+export function fetchGifList(query, offset, preview_type, format) {
   return (dispatch, getState) => {
     dispatch(fetchGifListRequest());
 
@@ -44,7 +44,13 @@ export function fetchGifList(query, offset) {
         params: { query, offset },
       },
     ).then(response => {
-      dispatch(fetchGifListSuccess(response.data));
+      const { data, pagination } = response.data;
+      dispatch(fetchGifListSuccess({
+        data,
+        pagination,
+        preview_type,
+        format,
+      }));
     }).catch(error => {
       dispatch(fetchGifListFail(error));
     });

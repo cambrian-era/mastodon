@@ -1,11 +1,36 @@
 .compose-form__gif-picker-dropdown {
   position: absolute;
-  width: 430px;
-  height: 440px;
-  background: $white;
+  //background: $white;
   border-radius: 4px;
   box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
-  margin-left: 40px;
+  background: url('/packs/giphy_badge.gif') $white;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .compose-form__gif-picker-dropdown {
+    width: 430px;
+    height: 440px;
+    margin-left: 40px;
+  }
+
+  .compose-form__gif-picker-previews {
+    height: 380px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .compose-form__gif-picker-dropdown {
+    width: 100%;
+    height: 240px;
+    margin-left: 0;
+  }
+
+  .compose-form__gif-picker-previews {
+    height: 180px;
+  }
 }
 
 .compose-form__gif-picker-dropdown-input {
@@ -23,7 +48,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 380px;
   margin: 5px auto;
 }
 
@@ -39,6 +63,7 @@
 .gif-picker-preview {
   background-color: $white;
   display: block;
-  border: 3px solid;
+  border: 3px solid $white;
   flex: 0;
+  cursor: pointer;
 }

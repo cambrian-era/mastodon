@@ -26,6 +26,7 @@ const initialState = ImmutableMap({
   }),
   value: '',
   active: false,
+  preview_type: 'gif',
 });
 
 export default function gif_search(state = initialState, action) {
@@ -34,19 +35,23 @@ export default function gif_search(state = initialState, action) {
   case GIF_SEARCH_ACTIVATE:
     return state.set('active', action.active);
   case GIF_LIST_FETCH_SUCCESS:
+    const { data, pagination, preview_type, format } = action.search_results;
     state = ImmutableMap({
-      data: ConvertToImmutable(action.search_results.data.map( item => {
+      data: ConvertToImmutable(data.map( item => {
+        const preview = item.images[preview_type];
+
         return ImmutableMap({
           id: item.id,
           url: item.url,
-          preview: item.images.fixed_width.mp4,
-          width: item.images.fixed_width.width,
-          height: item.images.fixed_width.height,
+          preview: (format === 'gif' ? preview.url : preview[format]),
+          width: preview.width,
+          height: preview.height,
         });
       })),
-      pagination: ConvertToImmutable(action.search_results.pagination),
+      pagination: ConvertToImmutable(pagination),
       value: '',
       active: true,
+      preview_type: state.preview_type,
     });
     return state;
   case GIF_SEARCH_CHANGE:
