@@ -15,7 +15,11 @@ body {
   .column {
       width: 380px;
   }
-} 
+}
+
+.media-modal__nav {
+  color: $ui-highlight-color;
+}
 
 .column-header {
   color: $black;

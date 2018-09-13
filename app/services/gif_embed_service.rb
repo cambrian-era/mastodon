@@ -17,7 +17,7 @@ class GifEmbedService < BaseService
       .accept('image/*')
       .get(gif_url)
     
-    file = Tempfile.new('gif')
+    file = Tempfile.new([SecureRandom.hex(8), gif_url.split('/').last.split('.').last])
 
     media_http.body.each { |chunk|
       file.syswrite(chunk)
@@ -25,7 +25,7 @@ class GifEmbedService < BaseService
 
     gifDispatch = ActionDispatch::Http::UploadedFile.new(
       tempfile: file,
-      filename: gif_url.split('/').last,
+      filename: file.path[5..-1],
       type: media_http.mime_type
     )
   end

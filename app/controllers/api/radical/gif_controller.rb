@@ -1,5 +1,3 @@
-include ObfuscateFilename
-
 class Api::Radical::GifController < Api::BaseController
   include ObfuscateFilename
 
@@ -19,10 +17,7 @@ class Api::Radical::GifController < Api::BaseController
   end
 
   def create
-    gif = GifEmbedService.new.call(params[:data][:id])
-    params[:file] = gif
-
-    obfuscate_filename gif
+    params[:file] = GifEmbedService.new.call(params[:file])
     
     @media = current_account.media_attachments.create!(media_params)
     render json: @media, serializer: REST::MediaAttachmentSerializer

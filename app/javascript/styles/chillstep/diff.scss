@@ -39,4 +39,8 @@ body {
     > * {
       background: url('../images/radical_town_scale_title.svg') no-repeat left bottom / contain;
     }
-  }
+}
+
+.media-modal__nav {
+    color: $ui-highlight-color;
+}
