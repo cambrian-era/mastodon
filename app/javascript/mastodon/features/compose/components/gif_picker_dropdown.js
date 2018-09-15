@@ -23,6 +23,7 @@ class GifPickerMenu extends React.PureComponent {
     style: PropTypes.object.isRequired,
     previews: PropTypes.instanceOf(ImmutableList),
     value: PropTypes.string,
+    preview_format: PropTypes.string,
   }
 
   static defaultProps = {
@@ -54,7 +55,7 @@ class GifPickerMenu extends React.PureComponent {
   }
 
   handleSubmit = e => {
-    this.props.onSubmit(this.props.value);
+    this.props.onSubmit(this.props.value, 'gif');
     e.preventDefault();
   }
 
@@ -69,11 +70,18 @@ class GifPickerMenu extends React.PureComponent {
           width={Number(preview.get('width'))}
           height={Number(preview.get('height'))}
           onSelect={this.props.onSelect}
+          format={this.props.preview_format}
+          tabIndex={n}
         />
       );
     };
+
+    const previewLists = [[], []];
+    this.props.previews.forEach( (preview, n) => previewLists[n % 2].push(preview) );
+
     return(
       <div className={classNames('compose-form__gif-picker-dropdown')} ref={this.setRef} style={style}>
+        {/* <img className='giphy-badge' src='/packs/giphy_badge.gif' alt='Powered by Giphy' /> */}
         <form onSubmit={this.handleSubmit}>
           <input
             autoComplete='off'
@@ -86,22 +94,11 @@ class GifPickerMenu extends React.PureComponent {
         </form>
         <div className={classNames('compose-form__gif-picker-previews', 'scrollable')}>
           <div className={classNames('compose-form__gif-picker-column-1', 'gif-preview-column')}>
-            { this.props.previews.map( (preview, n) => {
-              if (n % 2 === 0) {
-                return(getPreview(preview, n));
-              } else {
-                return null;
-              }
-            })}
+            { previewLists[0].map((preview, n) => getPreview(preview, n)) }
           </div>
+
           <div className={classNames('compose-form__gif-picker-column-2', 'gif-preview-column')}>
-            { this.props.previews.map( (preview, n) => {
-              if (n % 2 === 1) {
-                return(getPreview(preview, n));
-              } else {
-                return null;
-              }
-            })}
+            { previewLists[1].map((preview, n) => getPreview(preview, n + 1)) }
           </div>
         </div>
       </div>
@@ -115,9 +112,11 @@ class GifPreview extends React.PureComponent {
   static propTypes = {
     id: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
+    format: PropTypes.string.isRequired,
     width: PropTypes.number,
     height: PropTypes.number,
     onSelect: PropTypes.func.isRequired,
+    tabIndex: PropTypes.number,
   }
 
   static defaultProps = {
@@ -126,6 +125,8 @@ class GifPreview extends React.PureComponent {
     width: 0,
     height: 0,
     url: '',
+    format: 'gif',
+    tabIndex: 0,
   }
 
   start = e => {
@@ -141,19 +142,44 @@ class GifPreview extends React.PureComponent {
     this.props.onSelect(this.props.id);
   }
 
+  handleKey = e => {
+    if (e.key === 13) {
+      this.handleSelect();
+    }
+  }
+
   render() {
-    return(
-      <video
-        muted loop
-        className='gif-picker-preview'
-        src={this.props.src}
-        width={this.props.width}
-        height={this.props.height}
-        onMouseEnter={this.start}
-        onMouseLeave={this.stop}
-        onClick={this.handleSelect}
-      />
-    );
+    if (this.props.format === 'mp4') {
+      return(
+        <video
+          muted loop
+          className='gif-picker-preview'
+          src={this.props.src}
+          width={this.props.width}
+          height={this.props.height}
+          onMouseEnter={this.start}
+          onMouseLeave={this.stop}
+          onClick={this.handleSelect}
+        />
+      );
+    } else {
+      return(
+        <div
+          onClick={this.handleSelect}
+          onKeyDown={this.handleKey}
+          tabIndex={this.props.tabIndex}
+          className='gif-picker-preview-button'
+          role='button'
+        >
+          <img
+            src={this.props.src}
+            width={this.props.width}
+            height={this.props.height}
+            alt=''
+          />
+        </div>
+      );
+    }
   }
 
 }

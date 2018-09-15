@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
   previews: state.getIn(['gif_search', 'data']),
   pagination: state.getIn(['gif_search', 'pagination']),
   active: state.getIn(['gif_search', 'active']),
+  preview_format: state.getIn(['gif_search', 'preview_format']),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -21,8 +22,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeGifSearch(value));
   },
 
-  onSubmit (value) {
-    dispatch(fetchGifList(value));
+  onSubmit (value, preview_format) {
+    dispatch(fetchGifList(value, 0, 'fixed_width_downsampled', preview_format));
   },
 
   onSelect (value) {

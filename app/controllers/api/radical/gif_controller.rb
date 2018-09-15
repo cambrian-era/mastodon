@@ -7,7 +7,7 @@ class Api::Radical::GifController < Api::BaseController
   respond_to :json
 
   def show
-    response = GifSearchService.new.call(params[:query])
+    response = GifSearchService.new.call(params)
 
     if response.status == 200
       render :json => response.to_s
