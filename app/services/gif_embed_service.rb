@@ -11,7 +11,7 @@ class GifEmbedService < BaseService
       .get("http://api.giphy.com/v1/gifs/#{id}", :params => {
         :api_key => ENV['GIPHY_API_KEY']
       }) 
-    gif_url = JSON.parse(info_http.body().to_s)['data']['images']['downsized_still']['url']
+    gif_url = JSON.parse(info_http.body().to_s)['data']['images']['original']['url']
 
     media_http = HTTP
       .accept('image/*')
