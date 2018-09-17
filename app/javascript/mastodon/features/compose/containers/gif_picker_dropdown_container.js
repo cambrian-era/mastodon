@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
   pagination: state.getIn(['gif_search', 'pagination']),
   active: state.getIn(['gif_search', 'active']),
   preview_format: state.getIn(['gif_search', 'preview_format']),
+  progress: state.getIn(['gif_search', 'progress']),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -35,7 +35,6 @@ RUN apk -U upgrade \
     protobuf-dev \
     python \
     python3 \
-    python3-pip \
  && apk add \
     ca-certificates \
     ffmpeg \
