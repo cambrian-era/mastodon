@@ -23,8 +23,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeGifSearch(value));
   },
 
-  onSubmit (value, preview_format) {
-    dispatch(fetchGifList(value, 0, 'fixed_width_downsampled', preview_format));
+  onRequest (value, preview_format, offset) {
+    dispatch(fetchGifList(value, offset, 'fixed_width_downsampled', preview_format));
   },
 
   onSelect (value) {

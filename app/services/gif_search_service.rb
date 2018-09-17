@@ -9,7 +9,7 @@ class GifSearchService < BaseService
       .get("https://api.giphy.com/v1/gifs/search", :params => {
         :api_key => ENV['GIPHY_API_KEY'],
         :q => params[:query],
-        :number => 50,
+        :limit => 50,
         :offset => params[:offset]
       })
   end

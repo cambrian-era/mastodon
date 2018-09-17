@@ -41,18 +41,23 @@ export default function gif_search(state = initialState, action) {
     return state.set('progress', true);
   case GIF_LIST_FETCH_SUCCESS:
     const { data, pagination, preview_type, format } = action.search_results;
-    state = ImmutableMap({
-      data: ConvertToImmutable(data.map( item => {
-        const preview = item.images[preview_type];
 
-        return ImmutableMap({
-          id: item.id,
-          url: item.url,
-          preview: (format === 'gif' ? preview.url : preview[format]),
-          width: preview.width,
-          height: preview.height,
-        });
-      })),
+    let previews = state.get('data').size > 1 ? state.get('data').toArray() : [];
+
+    previews = previews.concat(data.map( item => {
+      const preview = item.images[preview_type];
+
+      return ImmutableMap({
+        id: item.id,
+        url: item.url,
+        preview: (format === 'gif' ? preview.url : preview[format]),
+        width: preview.width,
+        height: preview.height,
+      });
+    }));
+
+    state = ImmutableMap({
+      data: ConvertToImmutable(previews),
       pagination: ConvertToImmutable(pagination),
       value: '',
       active: true,
