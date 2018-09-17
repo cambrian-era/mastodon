@@ -1,0 +1,23 @@
+@import 'radical/gif_picker';
+
+.radical-loading {
+  cursor: progress;
+}
+
+@keyframes highlight-pulse {
+  0% {
+    background-color: $white;
+  }
+
+  50% {
+    background-color: $ui-highlight-color;
+  }
+
+  100% {
+    background-color: $white;
+  }
+}
+
+.radical-loading-pulse {
+  animation: highlight-pulse 1s ease-in-out infinite;
+}

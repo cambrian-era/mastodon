@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '../../../components/icon_button';
+import ScrollableContainer from '../../../components/scrollable_container';
 import Overlay from 'react-overlays/lib/Overlay';
 import detectPassiveEvents from 'detect-passive-events';
 import classNames from 'classnames';
@@ -18,16 +19,23 @@ class GifPickerMenu extends React.PureComponent {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
+    onRequest: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     style: PropTypes.object.isRequired,
     previews: PropTypes.instanceOf(ImmutableList),
+    pagination: PropTypes.instanceOf(ImmutableMap),
     value: PropTypes.string,
     preview_format: PropTypes.string,
+    progress: PropTypes.bool,
   }
 
   static defaultProps = {
     style: {},
+    progress: false,
+  }
+
+  state = {
+    valueSnapshot: '',
   }
 
   setRef = c => {
@@ -42,6 +50,7 @@ class GifPickerMenu extends React.PureComponent {
   componentWillUnmount () {
     document.removeEventListener('click', this.handleDocumentClick, false);
     document.removeEventListener('touchend', this.handleDocumentClick, listenerOptions);
+    this.setState({ valueSnapshot: '' });
   }
 
   handleDocumentClick = e => {
@@ -55,8 +64,13 @@ class GifPickerMenu extends React.PureComponent {
   }
 
   handleSubmit = e => {
-    this.props.onSubmit(this.props.value, 'gif');
+    this.props.onRequest(this.props.value, 'gif', 0);
+    this.setState({ valueSnapshot: this.props.value });
     e.preventDefault();
+  }
+
+  handleRequestMore = () => {
+    this.props.onRequest(this.state.valueSnapshot, 'gif', this.props.pagination.offset + 25);
   }
 
   render() {
@@ -80,19 +94,25 @@ class GifPickerMenu extends React.PureComponent {
     this.props.previews.forEach( (preview, n) => previewLists[n % 2].push(preview) );
 
     return(
-      <div className={classNames('compose-form__gif-picker-dropdown')} ref={this.setRef} style={style}>
-        {/* <img className='giphy-badge' src='/packs/giphy_badge.gif' alt='Powered by Giphy' /> */}
+      <div
+        className={classNames('compose-form__gif-picker-dropdown', { 'radical-loading': this.props.progress })}
+        ref={this.setRef}
+        style={style}
+      >
         <form onSubmit={this.handleSubmit}>
           <input
             autoComplete='off'
-            className='compose-form__gif-picker-dropdown-input'
+            className={classNames('compose-form__gif-picker-dropdown-input', { 'radical-loading-pulse': this.props.progress } )}
             type='text'
             name='value'
             placeholder='Search...'
             onChange={this.handleChange}
           />
         </form>
-        <div className={classNames('compose-form__gif-picker-previews', 'scrollable')}>
+        <ScrollableContainer
+          className='compose-form__gif-picker-previews'
+          loadMore={this.handleRequestMore}
+        >
           <div className={classNames('compose-form__gif-picker-column-1', 'gif-preview-column')}>
             { previewLists[0].map((preview, n) => getPreview(preview, n)) }
           </div>
@@ -100,7 +120,7 @@ class GifPickerMenu extends React.PureComponent {
           <div className={classNames('compose-form__gif-picker-column-2', 'gif-preview-column')}>
             { previewLists[1].map((preview, n) => getPreview(preview, n + 1)) }
           </div>
-        </div>
+        </ScrollableContainer>
       </div>
     );
   }
@@ -194,12 +214,14 @@ export default class GifPickerDropdown extends React.PureComponent {
     activateSearch: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired,
+    progress: PropTypes.bool,
     previews: PropTypes.instanceOf(ImmutableList),
     pagination: PropTypes.instanceOf(ImmutableMap),
   };
 
   static defaultProps = {
     value: '',
+    progress: false,
   }
 
   state = {
@@ -248,6 +270,7 @@ export default class GifPickerDropdown extends React.PureComponent {
       pagination,
       value,
       active,
+      progress,
     } = this.props;
 
     return(
@@ -270,11 +293,12 @@ export default class GifPickerDropdown extends React.PureComponent {
           <GifPickerMenu
             onChange={onChange}
             onClose={this.onHideDropdown}
-            onSubmit={onSubmit}
+            onRequest={onSubmit}
             onSelect={onSelect}
             previews={previews}
             pagination={pagination}
             value={value}
+            progress={progress}
           />
         </Overlay>
       </div>

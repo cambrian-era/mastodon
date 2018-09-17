@@ -3,10 +3,12 @@ import {
   List as ImmutableList,
   fromJS as ConvertToImmutable } from 'immutable';
 import { 
+  GIF_LIST_FETCH_REQUEST,
   GIF_LIST_FETCH_SUCCESS,
   GIF_SEARCH_CHANGE,
   GIF_SEARCH_CLEAR,
   GIF_SEARCH_ACTIVATE,
+  GIF_EMBED_PROGRESS,
 } from '../actions/gif_search';
 
 const initialState = ImmutableMap({
@@ -27,6 +29,7 @@ const initialState = ImmutableMap({
   value: '',
   active: false,
   preview_type: 'gif',
+  progress: false,
 });
 
 export default function gif_search(state = initialState, action) {
@@ -34,6 +37,8 @@ export default function gif_search(state = initialState, action) {
   switch (action.type) {
   case GIF_SEARCH_ACTIVATE:
     return state.set('active', action.active);
+  case GIF_LIST_FETCH_REQUEST:
+    return state.set('progress', true);
   case GIF_LIST_FETCH_SUCCESS:
     const { data, pagination, preview_type, format } = action.search_results;
     state = ImmutableMap({
@@ -52,10 +57,13 @@ export default function gif_search(state = initialState, action) {
       value: '',
       active: true,
       preview_type: state.preview_type,
+      progress: false,
     });
     return state;
   case GIF_SEARCH_CHANGE:
     return state.set('value', action.value);
+  case GIF_EMBED_PROGRESS:
+    return state.set('progress', true);
   case GIF_SEARCH_CLEAR:
     return initialState;
   default:

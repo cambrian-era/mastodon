@@ -1,12 +1,12 @@
 .compose-form__gif-picker-dropdown {
   position: absolute;
-  //background: $white;
+  background: $white;
   border-radius: 4px;
   box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
-  background: url('/packs/giphy_badge.gif') $white;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 50px;
+  //background: url('/packs/giphy_badge.gif') $white;
+  //background-repeat: no-repeat;
+  //background-position: bottom left;
+  //background-size: 50px;
 }
 
 @media screen and (min-width: 600px) {
