@@ -1,3 +1,8 @@
 .column-header {
-  font-family: benguiat-bold, serif;
+  font-family: "Benguiat", serif;
+  text-transform: uppercase;
+  font-size: 18pt;
+  color: $black;
+  -webkit-text-stroke: 0.02em $ui-highlight-color;
+  text-shadow: 0 0 8px $ui-highlight-color;
 }
