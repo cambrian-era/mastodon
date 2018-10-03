@@ -3,3 +3,13 @@
 @import 'fonts/lato';
 @import 'fonts/benguiat';
 @import 'demogorgon/diff';
+
+@keyframes ASHES {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 50% 100%;
+  }
+}

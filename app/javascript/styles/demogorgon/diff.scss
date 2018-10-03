@@ -1,8 +1,65 @@
+.columns-area {
+  background: rgb(21,21,25);
+  background: url('../images/ashes.png'), linear-gradient(180deg, rgba(21,21,25,1) 17%, rgb(20, 38, 46) 44%, rgba(32,41,43,1) 74%, rgba(25,30,36,1) 100%);
+  background-blend-mode: soft-light, normal;
+  background-repeat: repeat, no-repeat;
+}
+
+body.no-reduce-motion div.columns-area {
+    animation-name: ASHES;
+    animation-duration: 120s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+div[aria-label="Home"] {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
+}
+
+div[aria-label="Notifications"] {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
+}
+
+div[aria-label="Local timeline"] {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
+}
+
+div[aria-label="Federated timeline"] {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
+}
+
+div[aria-label="Direct messages"] {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
+}
+
+div[aria-label="Favourites"] {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
+}
+
+div[aria-label="List"] {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
+}
+
 .column-header {
   font-family: "Benguiat", serif;
   text-transform: uppercase;
   font-size: 18pt;
   color: $black;
+  text-shadow: 1px 1px 8px $ui-highlight-color;
   -webkit-text-stroke: 0.02em $ui-highlight-color;
-  text-shadow: 0 0 8px $ui-highlight-color;
 }
