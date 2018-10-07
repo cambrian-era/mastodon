@@ -15,43 +15,36 @@ body.no-reduce-motion div.columns-area {
 
 div[aria-label="Home"] {
   padding: 0;
-  margin: 10px;
   box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
 }
 
 div[aria-label="Notifications"] {
   padding: 0;
-  margin: 10px;
   box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
 }
 
 div[aria-label="Local timeline"] {
   padding: 0;
-  margin: 10px;
   box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
 }
 
 div[aria-label="Federated timeline"] {
   padding: 0;
-  margin: 10px;
   box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
 }
 
 div[aria-label="Direct messages"] {
   padding: 0;
-  margin: 10px;
   box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
 }
 
 div[aria-label="Favourites"] {
   padding: 0;
-  margin: 10px;
   box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
 }
 
 div[aria-label="List"] {
   padding: 0;
-  margin: 10px;
   box-shadow: 0 0 10px darken($ui-highlight-color, 20%);
 }
 
@@ -62,4 +55,42 @@ div[aria-label="List"] {
   color: $black;
   text-shadow: 1px 1px 8px $ui-highlight-color;
   -webkit-text-stroke: 0.02em $ui-highlight-color;
+}
+
+@media screen and (min-width: 631px) {
+  div[aria-label="Home"] {
+    margin: 10px;
+  }
+  
+  div[aria-label="Notifications"] {
+    margin: 10px;
+  }
+  
+  div[aria-label="Local timeline"] {
+    margin: 10px;
+  }
+  
+  div[aria-label="Federated timeline"] {
+    margin: 10px;
+  }
+  
+  div[aria-label="Direct messages"] {
+    margin: 10px;
+  }
+  
+  div[aria-label="Favourites"] {
+    margin: 10px;
+  }
+  
+  div[aria-label="List"] {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .column {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

@@ -42,7 +42,12 @@ export default function gif_search(state = initialState, action) {
   case GIF_LIST_FETCH_SUCCESS:
     const { data, pagination, preview_type, format } = action.search_results;
 
-    let previews = state.get('data').size > 1 ? state.get('data').toArray() : [];
+    let previews;
+    if (pagination.offset === 0) {
+      previews = [];
+    } else {
+      previews = state.get('data').size > 1 ? state.get('data').toArray() : [];
+    }
 
     previews = previews.concat(data.map( item => {
       const preview = item.images[preview_type];

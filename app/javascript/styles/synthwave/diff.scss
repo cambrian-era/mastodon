@@ -11,9 +11,32 @@ body {
   padding: 0;
 }
 
-@media screen and (min-width: 600px) {
+.drawer {
+  padding: 0;
+}
+
+@media screen and (min-width: 631px) {
+  .drawer:first-child {
+    padding: 0;
+  }
+}
+
+.scrollable {
+  border-left: 1px solid rgb(255, 66, 224);
+  border-right: 1px solid rgb(177, 11, 66);
+}
+
+@media screen and (min-width: 1600px) {
   .column {
       width: 380px;
+  }
+}
+
+.tabs-bar {
+  background-color: rgb(255, 193, 59);
+  background: linear-gradient(160deg, #cb32d3 1%,#ffc13b 29%,#e2aa4f 39%,#fc074c 100%);
+  >.active {
+    color: rgb(13, 17, 58);
   }
 }
 
@@ -23,14 +46,15 @@ body {
 
 .column-header {
   color: $black;
-  border-top-left-radius: 10px;
   background: rgb(255, 235, 119);
   font-size: 20px;
   font-style: italic;
-  border-bottom: 10px solid rgb(255, 227, 66);
+  border-bottom: 10px solid rgb(255, 66, 129);
   box-shadow: 0 0 10px $ui-primary-color;
   >button {
     text-shadow: 0 0 2px $ui-primary-color;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
   }
 }
 
