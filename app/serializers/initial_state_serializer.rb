@@ -27,7 +27,10 @@ class InitialStateSerializer < ActiveModel::Serializer
       store[:display_media]   = object.current_account.user.setting_display_media
       store[:expand_spoilers] = object.current_account.user.setting_expand_spoilers
       store[:reduce_motion]   = object.current_account.user.setting_reduce_motion
+      store[:enable_markdown] = object.current_account.user.setting_enable_markdown
     end
+
+    puts store
 
     store
   end

@@ -31,6 +31,7 @@ class UserSettingsDecorator
     user.settings['noindex']             = noindex_preference if change?('setting_noindex')
     user.settings['theme']               = theme_preference if change?('setting_theme')
     user.settings['hide_network']        = hide_network_preference if change?('setting_hide_network')
+    user.settings['enable_markdown']     = enable_markdown_preference if change?('setting_enable_markdown')
   end
 
   def merged_notification_emails
@@ -95,6 +96,10 @@ class UserSettingsDecorator
 
   def default_language_preference
     settings['setting_default_language']
+  end
+
+  def enable_markdown_preference
+    boolean_cast_setting 'setting_enable_markdown'
   end
 
   def boolean_cast_setting(key)

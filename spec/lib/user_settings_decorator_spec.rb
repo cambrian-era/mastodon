@@ -63,6 +63,12 @@ describe UserSettingsDecorator do
       expect(user.settings['auto_play_gif']).to eq false
     end
 
+    it 'updates the user settings value for enable markdown' do
+      values = { 'setting_enable_markdown' => '0' }
+      settings.update(values)
+      expect(user.settings['enable_markdown']).to eq false
+    end
+
     it 'updates the user settings value for system font in UI' do
       values = { 'setting_system_font_ui' => '0' }
 

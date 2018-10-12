@@ -41,7 +41,11 @@ class REST::StatusSerializer < ActiveModel::Serializer
   end
 
   def content
-    Formatter.instance.format(object)
+    if current_user&.setting_enable_markdown == false
+      Formatter.instance.format(object)
+    else
+      Formatter.instance.format(object, use_markdown: true)
+    end
   end
 
   def url

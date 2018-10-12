@@ -86,6 +86,7 @@ en:
         setting_system_font_ui: Use system's default font
         setting_theme: Site theme
         setting_unfollow_modal: Show confirmation dialog before unfollowing someone
+        setting_enable_markdown: Enable Markdown in toots
         severity: Severity
         type: Import type
         username: Username

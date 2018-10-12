@@ -33,6 +33,7 @@ defaults: &defaults
   system_font_ui: false
   noindex: false
   theme: 'default'
+  enable_markdown: false
   notification_emails:
     follow: false
     reblog: false

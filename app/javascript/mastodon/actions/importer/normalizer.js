@@ -37,6 +37,7 @@ export function normalizeAccount(account) {
 
 export function normalizeStatus(status, normalOldStatus) {
   const normalStatus   = { ...status };
+
   normalStatus.account = status.account.id;
 
   if (status.reblog && status.reblog.id) {

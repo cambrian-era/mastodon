@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'singleton'
+require 'redcarpet'
 require_relative './sanitize_config'
 
 class Formatter
@@ -8,6 +9,16 @@ class Formatter
   include RoutingHelper
 
   include ActionView::Helpers::TextHelper
+
+  @@markdown = Redcarpet::Markdown.new(MinimalMarkdown, 
+    autolink: false, 
+    tables: false,
+    strikethrough: true,
+    fenced_code_blocks: true,
+    disable_indented_code_blocks: true,
+    underline: true,
+    highlight: true,
+    footnotes: false)
 
   def format(status, **options)
     if status.reblog?
@@ -34,7 +45,11 @@ class Formatter
     html = "RT @#{prepend_reblog} #{html}" if prepend_reblog
     html = encode_and_link_urls(html, linkable_accounts)
     html = encode_custom_emojis(html, status.emojis, options[:autoplay]) if options[:custom_emojify]
-    html = simple_format(html, {}, sanitize: false)
+    if options[:use_markdown]
+      html = @@markdown.render(html)
+    else
+      html = simple_format(html, {}, sanitize: false)
+    end
     html = html.delete("\n")
 
     html.html_safe # rubocop:disable Rails/OutputSafety

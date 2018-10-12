@@ -6,6 +6,7 @@
   %li= link_to t('preferences.publishing'), '#settings_publishing'
   %li= link_to t('preferences.other'), '#settings_other'
   %li= link_to t('preferences.web'), '#settings_web'
+  %li= link_to t('preferences.advanced'), '#settings_advanced'
 
 = simple_form_for current_user, url: settings_preferences_path, html: { method: :put } do |f|
   = render 'shared/error_messages', object: current_user
@@ -51,6 +52,10 @@
     = f.input :setting_expand_spoilers, as: :boolean, wrapper: :with_label
     = f.input :setting_reduce_motion, as: :boolean, wrapper: :with_label
     = f.input :setting_system_font_ui, as: :boolean, wrapper: :with_label
+  
+  %hr#settings_advanced/
+  .fields-group
+    = f.input :setting_enable_markdown, as: :boolean, wrapper: :with_label
 
   .actions
     = f.button :button, t('generic.save_changes'), type: :submit
