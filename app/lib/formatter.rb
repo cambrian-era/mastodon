@@ -10,7 +10,17 @@ class Formatter
 
   include ActionView::Helpers::TextHelper
 
-  @@markdown = Redcarpet::Markdown.new(MinimalMarkdown)
+  @@markdown = Redcarpet::Markdown.new(MinimalMarkdown, underline: true,
+    autolink: false,
+    tables: false,
+    strikethrough: true,
+    fenced_code_blocks: true,
+    disable_indented_code_blocks: true,
+    highlight: true,
+    footnotes: false,
+    no_images: true,
+    no_links: true,
+    quote: true)
 
   def format(status, **options)
     if status.reblog?
