@@ -26,12 +26,6 @@ body {
   border-right: 1px solid rgb(177, 11, 66);
 }
 
-@media screen and (min-width: 1600px) {
-  .column {
-      width: 380px;
-  }
-}
-
 .tabs-bar {
   background-color: rgb(255, 193, 59);
   background: linear-gradient(160deg, #cb32d3 1%,#ffc13b 29%,#e2aa4f 39%,#fc074c 100%);

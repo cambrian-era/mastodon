@@ -34,6 +34,7 @@ defaults: &defaults
   noindex: false
   theme: 'default'
   enable_markdown: false
+  column_width: 'column_relaxed'
   notification_emails:
     follow: false
     reblog: false

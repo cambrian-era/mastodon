@@ -32,6 +32,7 @@ class UserSettingsDecorator
     user.settings['theme']               = theme_preference if change?('setting_theme')
     user.settings['hide_network']        = hide_network_preference if change?('setting_hide_network')
     user.settings['enable_markdown']     = enable_markdown_preference if change?('setting_enable_markdown')
+    user.settings['column_width']        = column_width_preference if change?('setting_column_width')
   end
 
   def merged_notification_emails
@@ -100,6 +101,10 @@ class UserSettingsDecorator
 
   def enable_markdown_preference
     boolean_cast_setting 'setting_enable_markdown'
+  end
+
+  def column_width_preference
+    settings['setting_column_width']
   end
 
   def boolean_cast_setting(key)

@@ -78,6 +78,7 @@ module ApplicationHelper
     output << "theme-#{current_theme.parameterize}"
     output << 'system-font' if current_account&.user&.setting_system_font_ui
     output << (current_account&.user&.setting_reduce_motion ? 'reduce-motion' : 'no-reduce-motion')
+    output << (current_account&.user&.setting_column_width)
     output << 'rtl' if locale_direction == 'rtl'
     output.reject(&:blank?).join(' ')
   end

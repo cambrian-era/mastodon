@@ -495,6 +495,10 @@ en:
       return: Show the user's profile
       web: Go to web
     title: Follow %{acct}
+  column_widths:
+    column-original: Original (Mastodon Default)
+    column-relaxed: Relaxed (Radical Town Default)
+    column-wide: Wide
   datetime:
     distance_in_words:
       about_x_hours: "%{count}h"
