@@ -1,14 +1,16 @@
-import { 
+import {
   Map as ImmutableMap,
   List as ImmutableList,
   fromJS as ConvertToImmutable } from 'immutable';
-import { 
+import {
   GIF_LIST_FETCH_REQUEST,
   GIF_LIST_FETCH_SUCCESS,
   GIF_SEARCH_CHANGE,
   GIF_SEARCH_CLEAR,
   GIF_SEARCH_ACTIVATE,
   GIF_EMBED_PROGRESS,
+  GIF_SEARCH_RESET,
+  GIF_RESET_DONE,
 } from '../actions/gif_search';
 
 const initialState = ImmutableMap({
@@ -30,6 +32,7 @@ const initialState = ImmutableMap({
   active: false,
   preview_type: 'gif',
   progress: false,
+  reset: false,
 });
 
 export default function gif_search(state = initialState, action) {
@@ -68,6 +71,7 @@ export default function gif_search(state = initialState, action) {
       active: true,
       preview_type: state.preview_type,
       progress: false,
+      reset: false,
     });
     return state;
   case GIF_SEARCH_CHANGE:
@@ -76,6 +80,10 @@ export default function gif_search(state = initialState, action) {
     return state.set('progress', true);
   case GIF_SEARCH_CLEAR:
     return initialState;
+  case GIF_SEARCH_RESET:
+    return state.set('reset', true);
+  case GIF_RESET_DONE:
+    return state.set('reset', false);
   default:
     return state;
   }

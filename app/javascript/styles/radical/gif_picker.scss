@@ -1,12 +1,22 @@
+.giphy-logo {
+  .compose-form__gif-picker-dropdown {
+    background: url('/packs/PoweredBy_200px-White_HorizText.png') $white;
+    background-repeat: no-repeat;
+    background-position: bottom right 20px;
+  }
+}
+
+.no-gif-search {
+  .compose-form__gif-picker-button {
+    display: none;
+  }
+}
+
 .compose-form__gif-picker-dropdown {
   position: absolute;
   background: $white;
   border-radius: 4px;
   box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
-  //background: url('/packs/giphy_badge.gif') $white;
-  //background-repeat: no-repeat;
-  //background-position: bottom left;
-  //background-size: 50px;
 }
 
 @media screen and (min-width: 600px) {

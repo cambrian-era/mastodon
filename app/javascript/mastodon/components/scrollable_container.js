@@ -11,6 +11,7 @@ export default class ScrollableContainer extends Component {
     loadMore: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     offsetThreshold: PropTypes.number,
+    reset: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -46,14 +47,22 @@ export default class ScrollableContainer extends Component {
   }
 
   render() {
+    var renderChildren = () => {
+      if (this.props.reset === false) {
+        return React.Children.map(this.props.children, (child) => {
+          return child;
+        });
+      } else {
+        return null;
+      }
+    };
+
     return (
       <div
         className={classNames('scrollable', this.props.className)}
         ref={this.setRef}
       >
-        { React.Children.map(this.props.children, (child) => {
-          return child;
-        })}
+        { renderChildren() }
       </div>
     );
   }

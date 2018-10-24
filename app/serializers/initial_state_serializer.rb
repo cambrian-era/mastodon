@@ -16,6 +16,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       search_enabled: Chewy.enabled?,
       version: Mastodon::Version.to_s,
       invites_enabled: Setting.min_invite_role == 'user',
+      gif_search_enabled: gif_search_enabled?
     }
 
     if object.current_account
@@ -58,5 +59,9 @@ class InitialStateSerializer < ActiveModel::Serializer
 
   def media_attachments
     { accept_content_types: MediaAttachment::IMAGE_FILE_EXTENSIONS + MediaAttachment::VIDEO_FILE_EXTENSIONS + MediaAttachment::IMAGE_MIME_TYPES + MediaAttachment::VIDEO_MIME_TYPES }
+  end
+
+  def gif_search_enabled?
+    ENV.key?('GIPHY_API_KEY') && ENV['GIPHY_API_KEY'].length > 0
   end
 end

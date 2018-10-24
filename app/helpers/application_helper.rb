@@ -79,6 +79,7 @@ module ApplicationHelper
     output << 'system-font' if current_account&.user&.setting_system_font_ui
     output << (current_account&.user&.setting_reduce_motion ? 'reduce-motion' : 'no-reduce-motion')
     output << (current_account&.user&.setting_column_width)
+    output << 'giphy-logo' if ENV['SHOW_GIPHY_LOGO'] === 'true'
     output << 'rtl' if locale_direction == 'rtl'
     output.reject(&:blank?).join(' ')
   end

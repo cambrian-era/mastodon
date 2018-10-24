@@ -16,6 +16,9 @@ export const GIF_EMBED_PROGRESS     = 'GIF_EMBED_PROGRESS';
 export const GIF_EMBED_SUCCESS      = 'GIF_EMBED_SUCCESS';
 export const GIF_EMBED_FAIL         = 'GIF_EMBED_FAIL';
 
+export const GIF_SEARCH_RESET       = 'GIF_SEARCH_RESET';
+export const GIF_RESET_DONE         = 'GIF_RESET_DONE';
+
 export function gifSearchActivate(active) {
   return {
     type: GIF_SEARCH_ACTIVATE,
@@ -36,9 +39,19 @@ export function clearGifList() {
   };
 }
 
+export function gifSearchReset() {
+  return {
+    type: GIF_SEARCH_RESET,
+  };
+}
+
 export function fetchGifList(query, offset, preview_type, format) {
   return (dispatch, getState) => {
     dispatch(fetchGifListRequest());
+
+    if (offset === 0) {
+      dispatch(gifSearchReset());
+    }
 
     api(getState).get('/api/radical/gif_search',
       {
