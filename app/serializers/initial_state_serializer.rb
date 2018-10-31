@@ -17,6 +17,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       version: Mastodon::Version.to_s,
       invites_enabled: Setting.min_invite_role == 'user',
       gif_search_enabled: gif_search_enabled?
+      mascot: instance_presenter.mascot&.file&.url,
     }
 
     if object.current_account
@@ -63,5 +64,10 @@ class InitialStateSerializer < ActiveModel::Serializer
 
   def gif_search_enabled?
     ENV.key?('GIPHY_API_KEY') && ENV['GIPHY_API_KEY'].length > 0
+
+  private
+
+  def instance_presenter
+    @instance_presenter ||= InstancePresenter.new
   end
 end
