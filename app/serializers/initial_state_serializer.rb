@@ -16,8 +16,8 @@ class InitialStateSerializer < ActiveModel::Serializer
       search_enabled: Chewy.enabled?,
       version: Mastodon::Version.to_s,
       invites_enabled: Setting.min_invite_role == 'user',
-      gif_search_enabled: gif_search_enabled?
       mascot: instance_presenter.mascot&.file&.url,
+      gif_search_enabled: gif_search_enabled?
     }
 
     if object.current_account
@@ -64,6 +64,7 @@ class InitialStateSerializer < ActiveModel::Serializer
 
   def gif_search_enabled?
     ENV.key?('GIPHY_API_KEY') && ENV['GIPHY_API_KEY'].length > 0
+  end
 
   private
 
