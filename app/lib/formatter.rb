@@ -18,7 +18,7 @@ class Formatter
     disable_indented_code_blocks: true,
     highlight: true,
     footnotes: false,
-    no_links: true,
+    no_images: true,
     quote: true)
 
   def format(status, **options)
