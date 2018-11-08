@@ -18,7 +18,6 @@ class Formatter
     disable_indented_code_blocks: true,
     highlight: true,
     footnotes: false,
-    no_images: true,
     no_links: true,
     quote: true)
 
