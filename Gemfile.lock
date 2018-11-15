@@ -376,7 +376,7 @@ GEM
       http (~> 3.0)
       nokogiri (~> 1.8)
     ox (2.10.0)
-    paperclip (6.1.0)
+    paperclip (6.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       mime-types
@@ -714,7 +714,7 @@ DEPENDENCIES
   omniauth-saml (~> 1.10)
   ostatus2 (~> 2.0)
   ox (~> 2.10)
-  paperclip (~> 6.0)
+  paperclip (= 6.0)
   paperclip-av-transcoder (~> 0.6)
   parallel_tests (~> 2.26)
   pg (~> 1.1)
