@@ -16,10 +16,10 @@ class Formatter
     strikethrough: true,
     fenced_code_blocks: true,
     disable_indented_code_blocks: true,
+    no_intra_emphasis: true,
     highlight: true,
     footnotes: false,
     no_images: true,
-    no_links: true,
     quote: true)
 
   def format(status, **options)
@@ -47,7 +47,7 @@ class Formatter
     html = "RT @#{prepend_reblog} #{html}" if prepend_reblog
     html = encode_and_link_urls(html, linkable_accounts)
     html = encode_custom_emojis(html, status.emojis, options[:autoplay]) if options[:custom_emojify]
-    if options[:use_markdown]
+    if options[:use_markdown] == true
       html = @@markdown.render(html)
     else
       html = simple_format(html, {}, sanitize: false)
