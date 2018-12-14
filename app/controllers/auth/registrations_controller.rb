@@ -10,6 +10,8 @@ class Auth::RegistrationsController < Devise::RegistrationsController
   before_action :set_instance_presenter, only: [:new, :create, :update]
   before_action :set_body_classes, only: [:new, :create, :edit, :update]
 
+  after_action :set_csp, only: [:new, :create]
+
   def destroy
     not_found
   end
@@ -94,5 +96,12 @@ class Auth::RegistrationsController < Devise::RegistrationsController
 
   def set_sessions
     @sessions = current_user.session_activations
+  end
+
+  def set_csp
+    response.set_header('Access-Control-Allow-Origin', '*')
+    response.set_header('Content-Security-Policy', "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com")
+    
+    puts response.headers
   end
 end
