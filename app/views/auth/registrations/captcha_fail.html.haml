@@ -1,0 +1,11 @@
+- content_for :page_title do
+  = t('auth.register')
+
+- content_for :header_tags do
+  = render partial: 'shared/og'
+
+.content
+  We've flagged your connection as possibly being bot activity. If this is in error, please contact
+  %a{:href=>"mailto:radmin@radical.town"}
+    radmin@radical.town
+  so we can set you up manually.

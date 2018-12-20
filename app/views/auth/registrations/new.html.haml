@@ -3,13 +3,15 @@
 
 - content_for :header_tags do
   = render partial: 'shared/og'
-  %script(src="https://www.google.com/recaptcha/api.js?render=#{ENV['RECAPTCHA_SITE_KEY']}" crossorigin="anonymous")
-  :javascript
-    grecaptcha.ready(function() {
-        grecaptcha.execute("#{ENV['RECAPTCHA_SITE_KEY']}", {action: 'signup'}).then(function(token) {
-          
-        });
-    });
+
+  - if ActiveModel::Type::Boolean.new.cast(ENV['RECAPTCHA'])
+    %script(src="https://www.google.com/recaptcha/api.js?render=#{ENV['RECAPTCHA_SITE_KEY']}" crossorigin="anonymous")
+    :javascript
+      grecaptcha.ready(function() {
+          grecaptcha.execute("#{ENV['RECAPTCHA_SITE_KEY']}", {action: 'signup'}).then(function(token) {
+            document.getElementById("user_recaptcha_token").value = token;
+          });
+      }); 
 
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render 'shared/error_messages', object: resource
@@ -33,7 +35,8 @@
 
   = f.input :invite_code, as: :hidden
 
-  = f.input :recaptcha_token, as: :hidden
+  // Create a temporary placeholder for the token.
+  = f.input :recaptcha_token, as: :hidden, input_html: { value: nil }
 
   %p.hint= t('auth.agreement_html', rules_path: about_more_path, terms_path: terms_path)
 
