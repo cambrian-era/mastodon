@@ -157,9 +157,6 @@ class Auth::RegistrationsController < Devise::RegistrationsController
   end
 
   def set_csp
-    response.set_header('Access-Control-Allow-Origin', '*')
-    response.set_header('Content-Security-Policy', "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com")
-    
-    puts response.headers
+    response.set_header('Content-Security-Policy', "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/")
   end
 end

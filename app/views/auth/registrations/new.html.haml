@@ -5,7 +5,7 @@
   = render partial: 'shared/og'
 
   - if ActiveModel::Type::Boolean.new.cast(ENV['RECAPTCHA'])
-    %script(src="https://www.google.com/recaptcha/api.js?render=#{ENV['RECAPTCHA_SITE_KEY']}" crossorigin="anonymous")
+    %script(src="https://www.google.com/recaptcha/api.js?render=#{ENV['RECAPTCHA_SITE_KEY']}")
     :javascript
       grecaptcha.ready(function() {
           grecaptcha.execute("#{ENV['RECAPTCHA_SITE_KEY']}", {action: 'signup'}).then(function(token) {
