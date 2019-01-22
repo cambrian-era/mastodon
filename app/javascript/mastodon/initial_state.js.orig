@@ -14,10 +14,12 @@ export const me = getMeta('me');
 export const searchEnabled = getMeta('search_enabled');
 export const invitesEnabled = getMeta('invites_enabled');
 export const version = getMeta('version');
+export const mascot = getMeta('mascot');
 <<<<<<< HEAD
 export const gifSearchEnabled = getMeta('gif_search_enabled');
 =======
-export const mascot = getMeta('mascot');
->>>>>>> Github/master
+export const profile_directory = getMeta('profile_directory');
+export const isStaff = getMeta('is_staff');
+>>>>>>> 31e7940de553007ea2e863cb9a418ad46837431e
 
 export default initialState;

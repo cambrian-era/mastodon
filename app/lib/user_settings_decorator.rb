@@ -32,6 +32,7 @@ class UserSettingsDecorator
     user.settings['theme']               = theme_preference if change?('setting_theme')
     user.settings['hide_network']        = hide_network_preference if change?('setting_hide_network')
     user.settings['enable_markdown']     = enable_markdown_preference if change?('setting_enable_markdown')
+    user.settings['aggregate_reblogs']   = aggregate_reblogs_preference if change?('setting_aggregate_reblogs')
     user.settings['column_width']        = column_width_preference if change?('setting_column_width')
   end
 
@@ -99,6 +100,10 @@ class UserSettingsDecorator
     settings['setting_default_language']
   end
 
+  def aggregate_reblogs_preference
+    boolean_cast_setting 'setting_aggregate_reblogs'
+  end
+  
   def enable_markdown_preference
     boolean_cast_setting 'setting_enable_markdown'
   end

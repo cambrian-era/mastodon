@@ -16,11 +16,12 @@ class InitialStateSerializer < ActiveModel::Serializer
       search_enabled: Chewy.enabled?,
       version: Mastodon::Version.to_s,
       invites_enabled: Setting.min_invite_role == 'user',
+      mascot: instance_presenter.mascot&.file&.url,
 <<<<<<< HEAD
       gif_search_enabled: gif_search_enabled?
 =======
-      mascot: instance_presenter.mascot&.file&.url,
->>>>>>> Github/master
+      profile_directory: Setting.profile_directory,
+>>>>>>> 31e7940de553007ea2e863cb9a418ad46837431e
     }
 
     if object.current_account
@@ -32,7 +33,11 @@ class InitialStateSerializer < ActiveModel::Serializer
       store[:display_media]   = object.current_account.user.setting_display_media
       store[:expand_spoilers] = object.current_account.user.setting_expand_spoilers
       store[:reduce_motion]   = object.current_account.user.setting_reduce_motion
+<<<<<<< HEAD
       store[:enable_markdown] = object.current_account.user.setting_enable_markdown
+=======
+      store[:is_staff]        = object.current_account.user.staff?
+>>>>>>> 31e7940de553007ea2e863cb9a418ad46837431e
     end
 
     puts store
@@ -65,14 +70,13 @@ class InitialStateSerializer < ActiveModel::Serializer
     { accept_content_types: MediaAttachment::IMAGE_FILE_EXTENSIONS + MediaAttachment::VIDEO_FILE_EXTENSIONS + MediaAttachment::IMAGE_MIME_TYPES + MediaAttachment::VIDEO_MIME_TYPES }
   end
 
-<<<<<<< HEAD
   def gif_search_enabled?
     ENV.key?('GIPHY_API_KEY') && ENV['GIPHY_API_KEY'].length > 0
-=======
+  end
+
   private
 
   def instance_presenter
     @instance_presenter ||= InstancePresenter.new
->>>>>>> Github/master
   end
 end
