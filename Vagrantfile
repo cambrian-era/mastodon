@@ -80,11 +80,10 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "bento/ubuntu-18.04"
+  config.vm.box = "ubuntu/xenial64"
 
   config.vm.provider :virtualbox do |vb|
     vb.name = "mastodon"
-    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
     vb.customize ["modifyvm", :id, "--memory", "2048"]
     # Increase the number of CPUs. Uncomment and adjust to
     # increase performance

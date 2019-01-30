@@ -76,7 +76,6 @@ class Notification < ApplicationRecord
       return if account_ids.empty?
 
       accounts = Account.where(id: account_ids).includes(:account_stat).each_with_object({}) { |a, h| h[a.id] = a }
-
       cached_items.each do |item|
         item.from_account = accounts[item.from_account_id]
         item.target_status.account = accounts[item.target_status.account_id] if item.target_status
