@@ -80,8 +80,8 @@ sk:
     account_moderation_notes:
       create: Zanechaj poznámku
       created_msg: Poznámka moderátora bola úspešne vytvorená!
-      delete:   Vymaž
-      destroyed_msg: Poznámka moderátora bola úspešne zmazaná!
+      delete: Vymaž
+      destroyed_msg: Moderátorska poznámka bola úspešne zmazaná!
     accounts:
       are_you_sure: Si si istý?
       avatar: Maskot
@@ -139,16 +139,16 @@ sk:
       outbox_url: URL poslaných
       perform_full_suspension: Zablokovať
       profile_url: URL profilu
-      promote: Povýšiť
+      promote: Povýš
       protocol: Protokol
       public: Verejná os
       push_subscription_expires: PuSH odoberanie expiruje
       redownload: Obnov profil
-      remove_avatar: Odstrániť avatár
+      remove_avatar: Odstráň avatár
       remove_header: Odstráň hlavičku
       resend_confirmation:
-        already_confirmed: Tento užívateľ už je potvrdený
-        send: Znovu odoslať potvrdzovací email
+        already_confirmed: Tento užívateľ je už potvrdený
+        send: Znovu odošli potvrdzovací email
         success: Potvrdzujúci email bol úspešne odoslaný!
       reset: Resetuj
       reset_password: Obnov heslo
@@ -214,12 +214,12 @@ sk:
       title: Kontrólny záznam
     custom_emojis:
       by_domain: Doména
-      copied_msg: Lokálna kópia emoji úspešne vytvorená
+      copied_msg: Miestna kópia emoji bola úspešne vytvorená
       copy: Kopírovať
       copy_failed_msg: Nebolo možné vytvoriť lokálnu kópiu tohto emoji
       created_msg: Emoji úspešne vytvorené!
       delete: Zmazať
-      destroyed_msg: Emojo úspešne zničený!
+      destroyed_msg: Emoji boli úspešne zničené!
       disable: Zakázať
       disabled_msg: Emoji bolo úspešne zakázané
       emoji: Emotikony
@@ -228,7 +228,7 @@ sk:
       image_hint: PNG do 50KB
       listed: V zozname
       new:
-        title: Pridať nový vlastný emoji
+        title: Pridaj nové, vlastné emoji
       overwrite: Prepísať
       shortcode: Skratka
       shortcode_hint: Aspoň 2 znaky, povolené sú alfanumerické, alebo podčiarkovník
@@ -256,7 +256,7 @@ sk:
       title: Spravovacie rozhranie
       total_users: užívateľov celkovo
       trends: Trendy
-      week_interactions: Tohto týždňové interakcie
+      week_interactions: Tohtotýždňové interakcie
       week_users_active: aktívni tento týždeň
       week_users_new: užívateľov počas tohto týždňa
     domain_blocks:
@@ -270,17 +270,17 @@ sk:
         severity:
           desc_html: "<strong>Stíšenie</strong> urobí všetky príspevky daného účtu neviditeľné pre všetkých ktorí nenásledujú tento účet. <strong>Suspendácia</strong> zmaže všetky príspevky, médiá a profilové informácie. Použi <strong>Žiadne</strong>, ak chceš iba neprijímať súbory médií."
           noop: Nič
-          silence: Stíšiť
-          suspend: Suspendovať
+          silence: Stíš
+          suspend: Vylúč
         title: Nové blokovanie domény
-      reject_media: Odmietať súbory s obrázkami alebo videami
-      reject_media_hint: Zmaže lokálne uložené súbory médií a odmietne ich sťahovanie v budúcnosti. Irelevantné pre suspendáciu
+      reject_media: Odmietaj súbory s obrázkami alebo videami
+      reject_media_hint: Zmaže miestne uložené súbory médií a odmietne ich sťahovanie v budúcnosti. Irelevantné pre suspendáciu
       reject_reports: Zamietni hlásenia
       reject_reports_hint: Ignoruj všetky hlásenia prichádzajúce z tejto domény. Nevplýva na blokovania
       rejecting_media: odmietanie médiálnych súborov
       rejecting_reports: odmietané hlásenia
       severity:
-        silence: utíšené
+        silence: utíšený
         suspend: vylúčený
       show:
         affected_accounts:
