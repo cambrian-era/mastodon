@@ -7,14 +7,14 @@ sk:
     administered_by: 'Správcom je:'
     api: API
     apps: Aplikácie
-    closed_registrations: Registrácie sú na tomto serveri momentálne uzatvorené. Avšak, môžeš nájsť nejaký iný Mastodon server kde si založ účet a získaj tak prístup do presne tej istej siete odtiaľ.
+    closed_registrations: Registrácie na tomto serveri sú momentálne uzatvorené. Avšak, môžeš nájsť nejaký iný server v rámci Fediversa, kde si založ účet a získaj tak prístup do presne tej istej siete odtiaľ.
     contact: Kontakt
     contact_missing: Nezadaný
     contact_unavailable: Neuvedený
     documentation: Dokumentácia
     extended_description_html: |
       <h3>Pravidlá</h3>
-      <p>Žiadne zatiaľ nie sú</p>
+      <p>Žiadne zatiaľ uvedené niesu</p>
     features:
       humane_approach_body: Poučený z chýb iných sociálnych sietí, Mastodon sa snaží bojovať so zneužívaním siete voľbou etických návrhov.
       humane_approach_title: Ľudskejší prístup
