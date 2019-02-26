@@ -64,7 +64,7 @@ sk:
     posts:
       few: Príspevkov
       one: Príspevok
-      other: Príspevkov
+      other: Príspevky
     posts_tab_heading: Príspevky
     posts_with_replies: Príspevky s odpoveďami
     reserved_username: Prihlasovacie meno je rezervované
@@ -80,7 +80,7 @@ sk:
     account_moderation_notes:
       create: Zanechaj poznámku
       created_msg: Poznámka moderátora bola úspešne vytvorená!
-      delete: Zmazať
+      delete:   Vymaž
       destroyed_msg: Poznámka moderátora bola úspešne zmazaná!
     accounts:
       are_you_sure: Si si istý?
@@ -93,15 +93,15 @@ sk:
         new_email: Nový email
         submit: Zmeň email
         title: Zmeň email pre %{username}
-      confirm: Potvrdiť
+      confirm: Potvrď
       confirmed: Potvrdený
       confirming: Potvrdzujúci
       deleted: Zmazané
       demote: Degradovať
-      disable: Zablokovať
+      disable: Zablokuj
       disable_two_factor_authentication: Zakázať 2FA
       disabled: Blokovaný
-      display_name: Zobraziť meno
+      display_name: Zobrazované meno
       domain: Doména
       edit: Uprav
       email: Email
@@ -122,7 +122,7 @@ sk:
         local: Miestne
         remote: Federované
         title: Lokácia
-      login_status: Status prihlásenia
+      login_status: Stav prihlásenia
       media_attachments: Prílohy
       memorialize: Zmeniť na "Navždy budeme spomínať"
       moderation:
@@ -152,7 +152,7 @@ sk:
         success: Potvrdzujúci email bol úspešne odoslaný!
       reset: Resetuj
       reset_password: Obnov heslo
-      resubscribe: Znovu odoberať
+      resubscribe: Znovu odoberaj
       role: Oprávnenia
       roles:
         admin: Administrátor
@@ -165,18 +165,18 @@ sk:
       show:
         created_reports: Vytvorené hlásenia
         targeted_reports: Nahlásenia od ostatných
-      silence: Stíšiť
+      silence: Stíš
       silenced: Utíšení
       statuses: Príspevky
-      subscribe: Odoberať
+      subscribe: Odoberaj
       suspended: Zablokovaní
       title: Účty
       unconfirmed_email: Nepotvrdený email
-      undo_silenced: Zrušiť stíšenie
-      undo_suspension: Zrušiť suspendáciu
+      undo_silenced: Zruš stíšenie
+      undo_suspension: Zruš blokovanie
       unsubscribe: Prestaň odoberať
       username: Prezývka
-      warn: Varovať
+      warn: Varuj
       web: Web
     action_logs:
       actions:
@@ -223,7 +223,7 @@ sk:
       disable: Zakázať
       disabled_msg: Emoji bolo úspešne zakázané
       emoji: Emotikony
-      enable: Povoliť
+      enable: Povoľ
       enabled_msg: Emoji bolo úspešne povolené
       image_hint: PNG do 50KB
       listed: V zozname
@@ -231,7 +231,7 @@ sk:
         title: Pridať nový vlastný emoji
       overwrite: Prepísať
       shortcode: Skratka
-      shortcode_hint: Aspoň 2 znaky, povolené sú alfanumerické alebo podčiarkovník
+      shortcode_hint: Aspoň 2 znaky, povolené sú alfanumerické, alebo podčiarkovník
       title: Vlastné emoji
       unlisted: Nie je na zozname
       update_failed_msg: Nebolo možné aktualizovať toto emoji
@@ -265,7 +265,7 @@ sk:
       destroyed_msg: Blokovanie domény bolo zrušené
       domain: Doména
       new:
-        create: Blokovať doménu
+        create: Blokuj doménu
         hint: Blokovanie domény stále dovolí vytvárať nové účty v databáze, ale tieto budú automaticky moderované.
         severity:
           desc_html: "<strong>Stíšenie</strong> urobí všetky príspevky daného účtu neviditeľné pre všetkých ktorí nenásledujú tento účet. <strong>Suspendácia</strong> zmaže všetky príspevky, médiá a profilové informácie. Použi <strong>Žiadne</strong>, ak chceš iba neprijímať súbory médií."
@@ -404,20 +404,20 @@ sk:
         desc_html: Náhľad adresy z iných instancií, bude zobrazený aj vtedy, keď sú dané médiá označené ako senzitívne
         title: Ukazuj aj chúlostivé médiá v náhľadoch OpenGraph
       profile_directory:
-        desc_html: Povoliť užívateľom aby boli nájdení
+        desc_html: Povoľ užívateľom, aby mohli byť nájdení
         title: Zapni profilový katalóg
       registrations:
         closed_message:
-          desc_html: Toto sa zobrazí na hlavnej stránke v prípade že sú registrácie uzavreté. Možno tu použiť aj HTML kód
+          desc_html: Toto sa zobrazí na hlavnej stránke v prípade, že sú registrácie uzavreté. Možno tu použiť aj HTML kód
           title: Správa o uzavretých registráciách
         deletion:
-          desc_html: Dovoľiť každému aby si mohli zmazať svok účet
-          title: Sprístupniť možnosť vymazať si účet
+          desc_html: Dovoľ každému, aby si mohol vymazať svok účet
+          title: Sprístupn možnosť vymazania účtu
         min_invite_role:
           disabled: Nikto
-          title: Povoliť pozvánky od
+          title: Povoľ pozvánky od
         open:
-          desc_html: Povoliť každému aby si mohli vytvoriť účet
+          desc_html: Povoľ každému, aby si mohli vytvoriť účet
           title: Verejná registrácia
       show_known_fediverse_at_about_page:
         desc_html: Pokiaľ je zapnuté, bude v ukážke osi možné nahliadnúť príspevky z celého známeho fediversa. Inak budú ukázané iba príspevky z miestnej osi.
