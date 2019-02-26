@@ -14,7 +14,7 @@ sk:
     documentation: Dokumentácia
     extended_description_html: |
       <h3>Pravidlá</h3>
-      <p>Žiadne zatiaľ uvedené niesu</p>
+      <p>Žiadne zatiaľ uvedené nie sú.</p>
     features:
       humane_approach_body: Poučený z chýb iných sociálnych sietí, Mastodon sa snaží bojovať so zneužívaním siete voľbou etických návrhov.
       humane_approach_title: Ľudskejší prístup
@@ -27,13 +27,13 @@ sk:
     generic_description: "%{domain} je jeden server v sieti"
     hosted_on: Mastodon hostovaný na %{domain}
     learn_more: Zisti viac
-    other_instances: Zoznam ďalších inštancií
+    other_instances: Zoznam ďalších serverov
     privacy_policy: Ustanovenia o súkromí
     source_code: Zdrojový kód
     status_count_after:
       few: príspevkov
       one: príspevok
-      other: príspevkov
+      other: príspevky
     status_count_before: Ktorí napísali
     terms: Podmienky užívania
     user_count_after:
@@ -134,7 +134,7 @@ sk:
       moderation_notes: Moderátorské poznámky
       most_recent_activity: Posledná aktivita
       most_recent_ip: Posledná IP
-      no_limits_imposed: Niesú stanovené žiadné obmedzenia
+      no_limits_imposed: Nie sú stanovené žiadné obmedzenia
       not_subscribed: Nezaregistrované
       outbox_url: URL poslaných
       perform_full_suspension: Zablokovať
