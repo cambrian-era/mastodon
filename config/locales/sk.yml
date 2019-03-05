@@ -37,7 +37,7 @@ sk:
     status_count_before: Ktorí napísali
     terms: Podmienky užívania
     user_count_after:
-      few: užívatelia
+      few: užívateľov
       one: užívateľ
       other: užívatelia
     user_count_before: Domov pre
@@ -551,7 +551,7 @@ sk:
       x_seconds: "%{count}sek"
   deletes:
     bad_password_msg: Dobrý pokus, hakeri! Nesprávne heslo
-    confirm_password: Napíšte svoje terajšie heslo pre overenie vašej identity
+    confirm_password: Napíš svoje súčasné heslo, pre overenie tvojej totožnosti
     description_html: Týmto <strong> natrvalo, nenavrátiteľne </strong> vymažeš obsah tvojho účtu, a deaktivuješ ho. Tvoja prezývka ale ostane rezervovaná ako prevencia pred budúcimi impersonáciami.
     proceed: Vymaž účet
     success_msg: Tvoj účet bol úspešne vymazaný
@@ -572,7 +572,7 @@ sk:
     '403': Nemáš povolenie na zobrazenie tejto stránky.
     '404': Stránka ktorú si hľadal/a sa tu nenachádza.
     '410': Stránka ktorú si tu hľadal/a už viac neexistuje.
-    '422':
+    '422': Obsah zadaného súboru sa nepodarilo spracovať.
       content: Bezpečtnostné overenie zlyhalo. Blokuješ cookies?
       title: Bezpečtnostné overenie zlyhalo
     '429': Zamlčané
