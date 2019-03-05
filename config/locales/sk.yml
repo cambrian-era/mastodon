@@ -7,14 +7,14 @@ sk:
     administered_by: 'Správcom je:'
     api: API
     apps: Aplikácie
-    closed_registrations: Registrácie sú na tomto serveri momentálne uzatvorené. Avšak, môžeš nájsť nejaký iný Mastodon server kde si založ účet a získaj tak prístup do presne tej istej siete odtiaľ.
+    closed_registrations: Registrácie na tomto serveri sú momentálne uzatvorené. Avšak, môžeš nájsť nejaký iný server v rámci Fediversa, kde si založ účet a získaj tak prístup do presne tej istej siete odtiaľ.
     contact: Kontakt
     contact_missing: Nezadaný
     contact_unavailable: Neuvedený
     documentation: Dokumentácia
     extended_description_html: |
       <h3>Pravidlá</h3>
-      <p>Žiadne zatiaľ nie sú</p>
+      <p>Žiadne zatiaľ uvedené nie sú.</p>
     features:
       humane_approach_body: Poučený z chýb iných sociálnych sietí, Mastodon sa snaží bojovať so zneužívaním siete voľbou etických návrhov.
       humane_approach_title: Ľudskejší prístup
@@ -27,17 +27,17 @@ sk:
     generic_description: "%{domain} je jeden server v sieti"
     hosted_on: Mastodon hostovaný na %{domain}
     learn_more: Zisti viac
-    other_instances: Zoznam ďalších inštancií
+    other_instances: Zoznam ďalších serverov
     privacy_policy: Ustanovenia o súkromí
     source_code: Zdrojový kód
     status_count_after:
       few: príspevkov
       one: príspevok
-      other: príspevkov
+      other: príspevky
     status_count_before: Ktorí napísali
     terms: Podmienky užívania
     user_count_after:
-      few: užívatelia
+      few: užívateľov
       one: užívateľ
       other: užívatelia
     user_count_before: Domov pre
@@ -64,7 +64,7 @@ sk:
     posts:
       few: Príspevkov
       one: Príspevok
-      other: Príspevkov
+      other: Príspevky
     posts_tab_heading: Príspevky
     posts_with_replies: Príspevky s odpoveďami
     reserved_username: Prihlasovacie meno je rezervované
@@ -80,8 +80,8 @@ sk:
     account_moderation_notes:
       create: Zanechaj poznámku
       created_msg: Poznámka moderátora bola úspešne vytvorená!
-      delete: Zmazať
-      destroyed_msg: Poznámka moderátora bola úspešne zmazaná!
+      delete: Vymaž
+      destroyed_msg: Moderátorska poznámka bola úspešne zmazaná!
     accounts:
       are_you_sure: Si si istý?
       avatar: Maskot
@@ -93,15 +93,15 @@ sk:
         new_email: Nový email
         submit: Zmeň email
         title: Zmeň email pre %{username}
-      confirm: Potvrdiť
+      confirm: Potvrď
       confirmed: Potvrdený
       confirming: Potvrdzujúci
       deleted: Zmazané
       demote: Degradovať
-      disable: Zablokovať
+      disable: Zablokuj
       disable_two_factor_authentication: Zakázať 2FA
       disabled: Blokovaný
-      display_name: Zobraziť meno
+      display_name: Zobrazované meno
       domain: Doména
       edit: Uprav
       email: Email
@@ -122,7 +122,7 @@ sk:
         local: Miestne
         remote: Federované
         title: Lokácia
-      login_status: Status prihlásenia
+      login_status: Stav prihlásenia
       media_attachments: Prílohy
       memorialize: Zmeniť na "Navždy budeme spomínať"
       moderation:
@@ -134,25 +134,25 @@ sk:
       moderation_notes: Moderátorské poznámky
       most_recent_activity: Posledná aktivita
       most_recent_ip: Posledná IP
-      no_limits_imposed: Niesú stanovené žiadné obmedzenia
+      no_limits_imposed: Nie sú stanovené žiadné obmedzenia
       not_subscribed: Nezaregistrované
       outbox_url: URL poslaných
       perform_full_suspension: Zablokovať
       profile_url: URL profilu
-      promote: Povýšiť
+      promote: Povýš
       protocol: Protokol
       public: Verejná os
       push_subscription_expires: PuSH odoberanie expiruje
       redownload: Obnov profil
-      remove_avatar: Odstrániť avatár
+      remove_avatar: Odstráň avatár
       remove_header: Odstráň hlavičku
       resend_confirmation:
-        already_confirmed: Tento užívateľ už je potvrdený
-        send: Znovu odoslať potvrdzovací email
+        already_confirmed: Tento užívateľ je už potvrdený
+        send: Znovu odošli potvrdzovací email
         success: Potvrdzujúci email bol úspešne odoslaný!
       reset: Resetuj
       reset_password: Obnov heslo
-      resubscribe: Znovu odoberať
+      resubscribe: Znovu odoberaj
       role: Oprávnenia
       roles:
         admin: Administrátor
@@ -165,18 +165,18 @@ sk:
       show:
         created_reports: Vytvorené hlásenia
         targeted_reports: Nahlásenia od ostatných
-      silence: Stíšiť
+      silence: Stíš
       silenced: Utíšení
       statuses: Príspevky
-      subscribe: Odoberať
+      subscribe: Odoberaj
       suspended: Zablokovaní
       title: Účty
       unconfirmed_email: Nepotvrdený email
-      undo_silenced: Zrušiť stíšenie
-      undo_suspension: Zrušiť suspendáciu
+      undo_silenced: Zruš stíšenie
+      undo_suspension: Zruš blokovanie
       unsubscribe: Prestaň odoberať
       username: Prezývka
-      warn: Varovať
+      warn: Varuj
       web: Web
     action_logs:
       actions:
@@ -214,24 +214,24 @@ sk:
       title: Kontrólny záznam
     custom_emojis:
       by_domain: Doména
-      copied_msg: Lokálna kópia emoji úspešne vytvorená
+      copied_msg: Miestna kópia emoji bola úspešne vytvorená
       copy: Kopírovať
       copy_failed_msg: Nebolo možné vytvoriť lokálnu kópiu tohto emoji
       created_msg: Emoji úspešne vytvorené!
       delete: Zmazať
-      destroyed_msg: Emojo úspešne zničený!
+      destroyed_msg: Emoji boli úspešne zničené!
       disable: Zakázať
       disabled_msg: Emoji bolo úspešne zakázané
       emoji: Emotikony
-      enable: Povoliť
+      enable: Povoľ
       enabled_msg: Emoji bolo úspešne povolené
       image_hint: PNG do 50KB
       listed: V zozname
       new:
-        title: Pridať nový vlastný emoji
+        title: Pridaj nové, vlastné emoji
       overwrite: Prepísať
       shortcode: Skratka
-      shortcode_hint: Aspoň 2 znaky, povolené sú alfanumerické alebo podčiarkovník
+      shortcode_hint: Aspoň 2 znaky, povolené sú alfanumerické, alebo podčiarkovník
       title: Vlastné emoji
       unlisted: Nie je na zozname
       update_failed_msg: Nebolo možné aktualizovať toto emoji
@@ -256,7 +256,7 @@ sk:
       title: Spravovacie rozhranie
       total_users: užívateľov celkovo
       trends: Trendy
-      week_interactions: Tohto týždňové interakcie
+      week_interactions: Tohtotýždňové interakcie
       week_users_active: aktívni tento týždeň
       week_users_new: užívateľov počas tohto týždňa
     domain_blocks:
@@ -265,22 +265,22 @@ sk:
       destroyed_msg: Blokovanie domény bolo zrušené
       domain: Doména
       new:
-        create: Blokovať doménu
+        create: Blokuj doménu
         hint: Blokovanie domény stále dovolí vytvárať nové účty v databáze, ale tieto budú automaticky moderované.
         severity:
           desc_html: "<strong>Stíšenie</strong> urobí všetky príspevky daného účtu neviditeľné pre všetkých ktorí nenásledujú tento účet. <strong>Suspendácia</strong> zmaže všetky príspevky, médiá a profilové informácie. Použi <strong>Žiadne</strong>, ak chceš iba neprijímať súbory médií."
           noop: Nič
-          silence: Stíšiť
-          suspend: Suspendovať
+          silence: Stíš
+          suspend: Vylúč
         title: Nové blokovanie domény
-      reject_media: Odmietať súbory s obrázkami alebo videami
-      reject_media_hint: Zmaže lokálne uložené súbory médií a odmietne ich sťahovanie v budúcnosti. Irelevantné pre suspendáciu
+      reject_media: Odmietaj súbory s obrázkami alebo videami
+      reject_media_hint: Zmaže miestne uložené súbory médií a odmietne ich sťahovanie v budúcnosti. Irelevantné pre suspendáciu
       reject_reports: Zamietni hlásenia
       reject_reports_hint: Ignoruj všetky hlásenia prichádzajúce z tejto domény. Nevplýva na blokovania
       rejecting_media: odmietanie médiálnych súborov
       rejecting_reports: odmietané hlásenia
       severity:
-        silence: utíšené
+        silence: utíšený
         suspend: vylúčený
       show:
         affected_accounts:
@@ -404,20 +404,20 @@ sk:
         desc_html: Náhľad adresy z iných instancií, bude zobrazený aj vtedy, keď sú dané médiá označené ako senzitívne
         title: Ukazuj aj chúlostivé médiá v náhľadoch OpenGraph
       profile_directory:
-        desc_html: Povoliť užívateľom aby boli nájdení
+        desc_html: Povoľ užívateľom, aby mohli byť nájdení
         title: Zapni profilový katalóg
       registrations:
         closed_message:
-          desc_html: Toto sa zobrazí na hlavnej stránke v prípade že sú registrácie uzavreté. Možno tu použiť aj HTML kód
+          desc_html: Toto sa zobrazí na hlavnej stránke v prípade, že sú registrácie uzavreté. Možno tu použiť aj HTML kód
           title: Správa o uzavretých registráciách
         deletion:
-          desc_html: Dovoľiť každému aby si mohli zmazať svok účet
-          title: Sprístupniť možnosť vymazať si účet
+          desc_html: Dovoľ každému, aby si mohol vymazať svok účet
+          title: Sprístupn možnosť vymazania účtu
         min_invite_role:
           disabled: Nikto
-          title: Povoliť pozvánky od
+          title: Povoľ pozvánky od
         open:
-          desc_html: Povoliť každému aby si mohli vytvoriť účet
+          desc_html: Povoľ každému, aby si mohli vytvoriť účet
           title: Verejná registrácia
       show_known_fediverse_at_about_page:
         desc_html: Pokiaľ je zapnuté, bude v ukážke osi možné nahliadnúť príspevky z celého známeho fediversa. Inak budú ukázané iba príspevky z miestnej osi.
@@ -551,7 +551,7 @@ sk:
       x_seconds: "%{count}sek"
   deletes:
     bad_password_msg: Dobrý pokus, hakeri! Nesprávne heslo
-    confirm_password: Napíšte svoje terajšie heslo pre overenie vašej identity
+    confirm_password: Napíš svoje súčasné heslo, pre overenie tvojej totožnosti
     description_html: Týmto <strong> natrvalo, nenavrátiteľne </strong> vymažeš obsah tvojho účtu, a deaktivuješ ho. Tvoja prezývka ale ostane rezervovaná ako prevencia pred budúcimi impersonáciami.
     proceed: Vymaž účet
     success_msg: Tvoj účet bol úspešne vymazaný
@@ -572,7 +572,7 @@ sk:
     '403': Nemáš povolenie na zobrazenie tejto stránky.
     '404': Stránka ktorú si hľadal/a sa tu nenachádza.
     '410': Stránka ktorú si tu hľadal/a už viac neexistuje.
-    '422':
+    '422': Obsah zadaného súboru sa nepodarilo spracovať.
       content: Bezpečtnostné overenie zlyhalo. Blokuješ cookies?
       title: Bezpečtnostné overenie zlyhalo
     '429': Zamlčané
