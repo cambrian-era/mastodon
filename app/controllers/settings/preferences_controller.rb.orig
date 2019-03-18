@@ -47,12 +47,13 @@ class Settings::PreferencesController < Settings::BaseController
       :setting_noindex,
       :setting_theme,
       :setting_hide_network,
-<<<<<<< HEAD
       :setting_enable_markdown,
+      :setting_aggregate_reblogs,
+<<<<<<< HEAD
       :setting_column_width,
 =======
-      :setting_aggregate_reblogs,
->>>>>>> 31e7940de553007ea2e863cb9a418ad46837431e
+      :setting_show_application,
+>>>>>>> f85b66eb8cc9513822d0ece3928b12aa789bb410
       notification_emails: %i(follow follow_request reblog favourite mention digest report),
       interactions: %i(must_be_follower must_be_following)
     )

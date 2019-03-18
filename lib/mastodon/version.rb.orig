@@ -14,10 +14,10 @@ module Mastodon
 
     def patch
 <<<<<<< HEAD
-      5
+      3
 =======
-      0
->>>>>>> 31e7940de553007ea2e863cb9a418ad46837431e
+      4
+>>>>>>> f85b66eb8cc9513822d0ece3928b12aa789bb410
     end
 
     def pre

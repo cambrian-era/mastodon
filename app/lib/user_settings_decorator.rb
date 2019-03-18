@@ -34,6 +34,7 @@ class UserSettingsDecorator
     user.settings['enable_markdown']     = enable_markdown_preference if change?('setting_enable_markdown')
     user.settings['aggregate_reblogs']   = aggregate_reblogs_preference if change?('setting_aggregate_reblogs')
     user.settings['column_width']        = column_width_preference if change?('setting_column_width')
+    user.settings['show_application']    = show_application_preference if change?('setting_show_application')
   end
 
   def merged_notification_emails
@@ -90,6 +91,10 @@ class UserSettingsDecorator
 
   def hide_network_preference
     boolean_cast_setting 'setting_hide_network'
+  end
+
+  def show_application_preference
+    boolean_cast_setting 'setting_show_application'
   end
 
   def theme_preference

@@ -25,9 +25,11 @@ import height_cache from './height_cache';
 import custom_emojis from './custom_emojis';
 import lists from './lists';
 import listEditor from './list_editor';
+import listAdder from './list_adder';
 import filters from './filters';
 import conversations from './conversations';
 import suggestions from './suggestions';
+import polls from './polls';
 
 // Radical Town Extensions
 import gif_search from './gif_search';
@@ -59,13 +61,15 @@ const reducers = {
   custom_emojis,
   lists,
   listEditor,
+  listAdder,
   filters,
+  conversations,
+  suggestions,
 <<<<<<< HEAD
   gif_search,
 =======
-  conversations,
-  suggestions,
->>>>>>> Github/master
+  polls,
+>>>>>>> f85b66eb8cc9513822d0ece3928b12aa789bb410
 };
 
 export default combineReducers(reducers);

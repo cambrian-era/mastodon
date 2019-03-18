@@ -29,6 +29,7 @@ import listAdder from './list_adder';
 import filters from './filters';
 import conversations from './conversations';
 import suggestions from './suggestions';
+import polls from './polls';
 
 // Radical Town Extensions
 import gif_search from './gif_search';
@@ -65,6 +66,7 @@ const reducers = {
   conversations,
   suggestions,
   gif_search,
+  polls,
 };
 
 export default combineReducers(reducers);

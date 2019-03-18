@@ -50,6 +50,7 @@ class Settings::PreferencesController < Settings::BaseController
       :setting_enable_markdown,
       :setting_aggregate_reblogs,
       :setting_column_width,
+      :setting_show_application,
       notification_emails: %i(follow follow_request reblog favourite mention digest report),
       interactions: %i(must_be_follower must_be_following)
     )
