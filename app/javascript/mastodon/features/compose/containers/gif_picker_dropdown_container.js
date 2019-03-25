@@ -16,6 +16,7 @@ const mapStateToProps = state => ({
   active: state.getIn(['gif_search', 'active']),
   preview_format: state.getIn(['gif_search', 'preview_format']),
   progress: state.getIn(['gif_search', 'progress']),
+  unavailable: state.getIn(['compose', 'poll']) !== null,
 });
 
 const mapDispatchToProps = dispatch => ({

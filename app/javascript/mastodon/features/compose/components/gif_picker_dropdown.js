@@ -219,6 +219,7 @@ export default class GifPickerDropdown extends React.PureComponent {
     activateSearch: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired,
+    unavailable: PropTypes.bool,
     progress: PropTypes.bool,
     previews: PropTypes.instanceOf(ImmutableList),
     pagination: PropTypes.instanceOf(ImmutableMap),
@@ -276,8 +277,12 @@ export default class GifPickerDropdown extends React.PureComponent {
       value,
       active,
       progress,
+      unavailable,
     } = this.props;
 
+    if (unavailable) {
+      return null;
+    }
     return(
       <div ref={this.setTargetRef} className='compose-form__gif-picker-button;' onKeyDown={this.handleKeyDown} >
         <IconButton

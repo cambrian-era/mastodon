@@ -223,7 +223,7 @@ class ComposeForm extends ImmutablePureComponent {
             <SpoilerButtonContainer />
             { gifSearchEnabled && <GifPickerDropdown /> }
           </div>
-          <div className='character-counter__wrapper'><CharacterCounter max={500} text={text} /></div>
+          <div className='character-counter__wrapper'><CharacterCounter max={1000} text={text} /></div>
         </div>
 
         <div className='compose-form__publish'>
