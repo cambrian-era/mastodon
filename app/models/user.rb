@@ -125,7 +125,8 @@ class User < ApplicationRecord
   end
 
   def confirm
-    new_user = !confirmed?
+    new_user      = !confirmed?
+    self.approved = true if open_registrations?
 
     super
 
@@ -137,7 +138,8 @@ class User < ApplicationRecord
   end
 
   def confirm!
-    new_user = !confirmed?
+    new_user      = !confirmed?
+    self.approved = true if open_registrations?
 
     skip_confirmation!
     save!
@@ -265,7 +267,11 @@ class User < ApplicationRecord
   private
 
   def set_approved
-    self.approved = Setting.registrations_mode == 'open' || invited?
+    self.approved = open_registrations? || invited?
+  end
+
+  def open_registrations?
+    Setting.registrations_mode == 'open'
   end
 
   def sanitize_languages
