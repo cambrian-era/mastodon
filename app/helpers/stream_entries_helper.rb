@@ -23,7 +23,7 @@ module StreamEntriesHelper
           safe_join([render(file: Rails.root.join('app', 'javascript', 'images', 'logo.svg')), t('accounts.unfollow')])
         end
       elsif !(account.memorial? || account.moved?)
-        link_to account_follow_path(account), class: 'button logo-button', data: { method: :post } do
+        link_to account_follow_path(account), class: "button logo-button#{account.blocking?(current_account) ? ' disabled' : ''}", data: { method: :post } do
           safe_join([render(file: Rails.root.join('app', 'javascript', 'images', 'logo.svg')), t('accounts.follow')])
         end
       end
@@ -105,8 +105,8 @@ module StreamEntriesHelper
   end
 
   def poll_summary(status)
-    return unless status.poll
-    status.poll.options.map { |o| "[ ] #{o}" }.join("\n")
+    return unless status.preloadable_poll
+    status.preloadable_poll.options.map { |o| "[ ] #{o}" }.join("\n")
   end
 
   def status_description(status)

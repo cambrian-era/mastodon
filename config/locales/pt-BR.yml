@@ -10,19 +10,19 @@ pt-BR:
     api: API
     apps: Apps
     apps_platforms: Use o Mastodon a partir de iOS, Android e outras plataformas
-    browse_directory: Procurar um diretório de perfil e filtrar por interesses
-    browse_public_posts: Navegue por um fluxo ao vivo de posts públicos no Mastodon
+    browse_directory: Navegue pelo diretório de perfis e filtre por interesses
+    browse_public_posts: Navegue pelos posts públicos sendo postados ao vivo no Mastodon
     contact: Contato
     contact_missing: Não definido
     contact_unavailable: Não disponível
-    discover_users: Descubra os usuários
+    discover_users: Descubra usuários
     documentation: Documentação
     extended_description_html: |
       <h3>Um bom lugar para regras</h3>
       <p>A descrição da instância ainda não foi feita.</p>
-    federation_hint_html: Com uma conta em %{instance} poderá seguir pessoas em qualquer servidor Mastodon e para além dele.
+    federation_hint_html: Com uma conta em %{instance} você vai poder seguir pessoas em qualquer servidor Mastodon ou outros do fediverso.
     generic_description: "%{domain} é um servidor na rede"
-    get_apps: Experimente uma aplicação móvel
+    get_apps: Experimente um aplicativo
     hosted_on: Mastodon hospedado em %{domain}
     learn_more: Saiba mais
     privacy_policy: Política de Privacidade
@@ -33,7 +33,7 @@ pt-BR:
       one: status
       other: status
     status_count_before: Autores de
-    tagline: Siga amigos e descubra novos
+    tagline: Siga amigos e encontre novos
     terms: Termos de serviço
     user_count_after:
       one: usuário
@@ -245,6 +245,7 @@ pt-BR:
       feature_profile_directory: Diretório de perfis
       feature_registrations: Cadastros
       feature_relay: Repetidor da federação
+      feature_timeline_preview: pré-visualização da timeline
       features: Funcionalidades
       hidden_service: Federação com serviços onion
       open_reports: Denúncias em aberto
@@ -386,7 +387,7 @@ pt-BR:
         title: Usuários a serem seguidos por padrão por novas contas
       contact_information:
         email: E-mail
-        username: Contate usuário
+        username: Usuário de contato
       custom_css:
         desc_html: Modificar o visual com CSS que é carregado em todas as páginas
         title: CSS customizado
@@ -420,7 +421,7 @@ pt-BR:
           approved: Aprovação necessária para cadastro
           none: Ninguém pode se cadastrar
           open: Qualquer um pode se cadastrar
-        title: Modo de inscrição
+        title: Modo de cadastro
       show_known_fediverse_at_about_page:
         desc_html: Quando ligado, vai mostrar toots de todo o fediverso conhecido na prévia da timeline. Senão, mostra somente toots locais.
         title: Mostrar fediverso conhecido na prévia da timeline
@@ -586,6 +587,9 @@ pt-BR:
       content: Desculpe, algo deu errado.
       title: Esta página não está certa
     noscript_html: Para usar o aplicativo web do Mastodon, por favor ative o JavaScript. Ou, se quiser, experimente um dos <a href="%{apps_path}">apps nativos</a> para o Mastodon em sua plataforma.
+  existing_username_validator:
+    not_found: não foi possível encontrar um usuário local com esse nome de usuário
+    not_found_multiple: não foi possível encontrar %{usernames}
   exports:
     archive_takeout:
       date: Data
@@ -629,10 +633,13 @@ pt-BR:
     all: Tudo
     changes_saved_msg: Mudanças salvas com sucesso!
     copy: Copiar
+    order_by: Ordenar por
     save_changes: Salvar mudanças
     validation_errors:
       one: Algo não está certo! Por favor, reveja o erro abaixo
       other: Algo não está certo! Por favor, reveja os %{count} erros abaixo
+  html_validator:
+    invalid_markup: 'contém HTML inválido: %{error}'
   identity_proofs:
     active: Ativo
     authorize: Sim, autorizar
@@ -642,10 +649,13 @@ pt-BR:
       keybase:
         invalid_token: Tokens keybase são hashs de assinatura e devem conter 66 caracteres hexa
         verification_failed: Keybase não reconhece esse token como uma assinatura do usuário keybase %{kb_username}. Por favor tente novamente a partir de Keybase.
+      wrong_user: Não é possível criar uma prova para %{proving} estando logado como %{current}. Faça login como %{proving} e tente novamente.
     explanation_html: Você pode conectar criptograficamente suas outras identidades, tais quais seu perfil Keybase. Isso permite outras pessoas de lhe enviarem mensagens encriptadas e confiar no conteúdo que você as envia.
     i_am_html: Eu sou %{username} em %{service}.
     identity: Identidade
     inactive: Inativo
+    publicize_checkbox: 'E publique isso:'
+    publicize_toot: 'Está provado! Eu sou %{username} no %{service}: %{url}'
     status: Status da verificação
     view_proof: Ver prova
   imports:
@@ -752,7 +762,7 @@ pt-BR:
     truncate: "&hellip;"
   polls:
     errors:
-      already_voted: Você já votou nessa pesquisa
+      already_voted: Você já votou nessa enquete
       duplicate_options: contém itens duplicados
       duration_too_long: está muito longe no futuro
       duration_too_short: é curto demais
@@ -768,6 +778,8 @@ pt-BR:
   relationships:
     activity: Atividade da conta
     dormant: Inativo
+    last_active: Ativo por último em
+    most_recent: Mais recente
     moved: Mudou-se
     mutual: Mútuo
     primary: Primário

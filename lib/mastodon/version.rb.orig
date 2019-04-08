@@ -9,15 +9,11 @@ module Mastodon
     end
 
     def minor
-      7
+      8
     end
 
     def patch
-<<<<<<< HEAD
-      3
-=======
-      4
->>>>>>> f85b66eb8cc9513822d0ece3928b12aa789bb410
+      0
     end
 
     def pre
@@ -25,7 +21,11 @@ module Mastodon
     end
 
     def flags
+<<<<<<< HEAD
       ['radical']
+=======
+      'rc1'
+>>>>>>> Github-official/master
     end
 
     def to_a

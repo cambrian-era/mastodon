@@ -4,36 +4,25 @@ fr:
     about_hashtag_html: Figurent ci-dessous les pouets tagués avec <strong>#%{hashtag}</strong>. Vous pouvez interagir avec eux si vous avez un compte n’importe où dans le Fediverse.
     about_mastodon_html: Mastodon est un réseau social utilisant des formats ouverts et des logiciels libres. Comme le courriel, il est décentralisé.
     about_this: À propos
-    active_count_after: actif·ve·s
-    active_footnote: Utilisateur·ice·s Actif·ve·s par Mois (UAM)
     administered_by: 'Administrée par :'
     api: API
     apps: Applications mobiles
-    apps_platforms: Utilisez Mastodon depuis iOS, Android et d'autres plateformes
-    browse_directory: Parcourez les profils selon vos hobbies
-    browse_public_posts: Parcourez la timeline publique sur Mastodon
     contact: Contact
     contact_missing: Manquant
     contact_unavailable: Non disponible
-    discover_users: Découvrez de nouvelles personnes
     documentation: Documentation
     extended_description_html: |
       <h3>Un bon endroit pour les règles</h3>
       <p>La description étendue n’a pas été remplie.</p>
-    federation_hint_html: Avec un compte sur %{instance}, vous pourrez suivre des gens sur n'importe quelle instance Mastodon et au-delà.
     generic_description: "%{domain} est seulement un serveur du réseau"
-    get_apps: Essayez une application mobile
-    hosted_on: Instance Mastodon hébergée par %{domain}
+    hosted_on: Serveur Mastodon hébergée par %{domain}
     learn_more: En savoir plus
     privacy_policy: Politique de vie privée
-    see_whats_happening: Voyez ce qu'il se passe
-    server_stats: 'Statistiques de l''instance :'
     source_code: Code source
     status_count_after:
       one: Statut
       other: Statuts
     status_count_before: Ayant publié
-    tagline: Suivez vos ami·e·s et découvrez-en d'autres
     terms: Conditions d'utilisation
     user_count_after:
       one: utilisateur
@@ -48,7 +37,7 @@ fr:
       other: Abonné⋅e⋅s
     following: Abonnements
     joined: Inscrit·e en %{date}
-    last_active: dernière activité
+    last_active: actif dernièrement
     link_verified_on: La propriété de ce lien a été vérifiée le %{date}
     media: Médias
     moved_html: "%{name} a changé de compte pour %{new_profile_link} :"
@@ -79,7 +68,6 @@ fr:
       delete: Supprimer
       destroyed_msg: Note de modération supprimée avec succès !
     accounts:
-      approve: Approuver
       are_you_sure: Êtes-vous certain⋅e ?
       avatar: Avatar
       by_domain: Domaine
@@ -125,7 +113,6 @@ fr:
       moderation:
         active: Actif
         all: Tous
-        pending: En attente
         silenced: Masqués
         suspended: Suspendus
         title: Modération
@@ -135,7 +122,6 @@ fr:
       no_limits_imposed: Aucune limite imposée
       not_subscribed: Non abonné
       outbox_url: URL de sortie
-      pending: En attente de modération
       perform_full_suspension: Suspendre
       profile_url: URL du profil
       promote: Promouvoir
@@ -143,7 +129,6 @@ fr:
       public: Publique
       push_subscription_expires: Expiration de l’abonnement PuSH
       redownload: Rafraîchir le profil
-      reject: Rejeter
       remove_avatar: Supprimer l’avatar
       remove_header: Supprimer l'entête
       resend_confirmation:
@@ -260,7 +245,7 @@ fr:
       week_users_active: actif·ve·s cette semaine
       week_users_new: utilisateur·rice·s cette semaine
     domain_blocks:
-      add_new: Ajouter un nouveau blocage de domaine
+      add_new: Ajouter un nouveau bloqueur de domaine
       created_msg: Le blocage de domaine est désormais activé
       destroyed_msg: Le blocage de domaine a été désactivé
       domain: Domaine
@@ -280,7 +265,7 @@ fr:
       rejecting_media: rejet des fichiers multimédia
       rejecting_reports: rejet de rapports
       severity:
-        silence: réduit au silence
+        silence: silencié
         suspend: suspendu
       show:
         affected_accounts:
@@ -291,7 +276,7 @@ fr:
           suspend: Annuler la suspension sur tous les comptes existants pour ce domaine
         title: Annuler le blocage de domaine pour %{domain}
         undo: Annuler
-      undo: Annuler le blocage de domaine
+      undo: Annuler le bloqueur de domaine
     email_domain_blocks:
       add_new: Ajouter
       created_msg: Le blocage de domaine de courriel est désormais activé
@@ -332,7 +317,7 @@ fr:
     relays:
       add_new: Ajouter un nouveau relais
       delete: Effacer
-      description_html: Un <strong>relai de fédération</strong> est un serveur intermédiaire qui échange de grandes quantités de pouets entre les serveurs qui publient dessus et ceux qui y sont abonnés. <strong>Il peut aider les petites et moyennes instances à découvrir du contenu sur le fediverse</strong>, ce qui normalement nécessiterait que les membres locaux suivent des gens inscrits sur des serveurs distants.
+      description_html: Un <strong>relai de fédération</strong> est un serveur intermédiaire qui échange de grandes quantités de pouets entre les serveurs qui publient dessus et ceux qui y sont abonnés. <strong>Il peut aider les petits et moyen serveurs à découvrir du contenu sur le fediverse</strong>, ce qui normalement nécessiterait que les membres locaux suivent des gens inscrits sur des serveurs distants.
       disable: Désactiver
       disabled: Désactivé
       enable: Activé
@@ -389,16 +374,16 @@ fr:
         username: Entrez un nom d’utilisateur⋅ice
       custom_css:
         desc_html: Modifier l'apparence avec une CSS chargée sur chaque page
-        title: CSS personalisé
+        title: CSS personnalisé
       hero:
-        desc_html: Affichée sur la page d’accueil. Au moins 600x100px recommandé. Lorsqu’elle n’est pas définie, se rabat sur la vignette de l’instance
+        desc_html: Affichée sur la page d’accueil. Au moins 600x100px recommandé. Lorsqu’elle n’est pas définie, se rabat sur la vignette du serveur
         title: Image d’en-tête
       mascot:
         desc_html: Affiché sur plusieurs pages. Au moins 293×205px recommandé. Lorsqu'il n'est pas défini, retombe à la mascotte par défaut
         title: Image de la mascotte
       peers_api_enabled:
-        desc_html: Noms des domaines que cette instance a découvert dans le fediverse
-        title: Publier la liste des instances découvertes
+        desc_html: Noms des domaines que ce serveur a découvert dans le fediverse
+        title: Publier la liste des serveurs découverts
       preview_sensitive_media:
         desc_html: Les liens de prévisualisation sur les autres sites web afficheront une vignette même si le média est sensible
         title: Afficher les médias sensibles dans les prévisualisations OpenGraph
@@ -415,38 +400,32 @@ fr:
         min_invite_role:
           disabled: Personne
           title: Autoriser les invitations par
-      registrations_mode:
-        modes:
-          approved: Approbation requise pour l'inscription
-          none: Personne ne peut s'inscrire
-          open: N'importe qui peut s'inscrire
-        title: Modes d'inscription
       show_known_fediverse_at_about_page:
-        desc_html: Lorsque l’option est activée, les pouets provenant de toutes les instances connues sont affichés dans la prévisualisation. Sinon, seuls les pouets locaux sont affichés.
+        desc_html: Lorsque l’option est activée, les pouets provenant de toutes les serveurs connues sont affichés dans la prévisualisation. Sinon, seuls les pouets locaux sont affichés.
         title: Afficher le fediverse connu dans la prévisualisation du fil
       show_staff_badge:
         desc_html: Montrer un badge de responsable sur une page utilisateur·ice
         title: Montrer un badge de responsable
       site_description:
         desc_html: Paragraphe introductif sur la page d’accueil. Décrivez ce qui rend spécifique ce serveur Mastodon et toute autre chose importante. Vous pouvez utiliser des balises HTML, en particulier <code>&lt;a&gt;</code> et <code>&lt;em&gt;</code>.
-        title: Description de l'instance
+        title: Description du serveur
       site_description_extended:
-        desc_html: L'endroit idéal pour afficher votre code de conduite, les règles, les guides et autres choses qui rendent votre instance différente. Vous pouvez utiliser des balises HTML
-        title: Description étendue du site
+        desc_html: L'endroit idéal pour afficher votre code de conduite, les règles, les guides et autres choses qui rendent votre serveur différent. Vous pouvez utiliser des balises HTML
+        title: Description étendue du serveur
       site_short_description:
-        desc_html: Affichée dans la barre latérale et dans les méta-tags. Décrivez ce qui rend spécifique cette instance Mastodon en un seul paragraphe. Si laissée vide, la description de l’instance sera affiché par défaut.
-        title: Description courte de l’instance
+        desc_html: Affichée dans la barre latérale et dans les méta-tags. Décrivez ce qui rend spécifique ce serveur Mastodon en un seul paragraphe. Si laissée vide, la description du serveur sera affiché par défaut.
+        title: Description courte du serveur
       site_terms:
         desc_html: Affichée sur la page des conditions d’utilisation du site<br>Vous pouvez utiliser des balises HTML
         title: Politique de confidentialité
-      site_title: Nom de l'instance
+      site_title: Nom du serveur
       thumbnail:
         desc_html: Utilisée pour les prévisualisations via OpenGraph et l’API. 1200x630px recommandé
-        title: Vignette de l’instance
+        title: Vignette du serveur
       timeline_preview:
         desc_html: Afficher le fil public sur la page d’accueil
         title: Prévisualisation du fil global
-      title: Paramètres du site
+      title: Paramètres du serveur
     statuses:
       back_to_account: Retour à la page du compte
       batch:
@@ -483,9 +462,6 @@ fr:
       edit_preset: Éditer la présélection d'attention
       title: Gérer les présélections d'attention
   admin_mailer:
-    new_pending_account:
-      body: Les détails du nouveau compte sont ci-dessous. Vous pouvez approuver ou rejeter cette candidature.
-      subject: Demande de création de compte sur %{instance} (%{username})
     new_report:
       body: "%{reporter} a signalé %{target}"
       body_remote: Quelqu’un de %{domain} a signalé %{target}
@@ -506,10 +482,8 @@ fr:
     warning: Soyez prudent⋅e avec ces données. Ne les partagez pas !
     your_token: Votre jeton d’accès
   auth:
-    agreement_html: En cliquant sur "S'inscrire" ci-dessous, vous souscrivez <a href="%{rules_path}">aux règles de l’instance</a> et à <a href="%{terms_path}">nos conditions d’utilisation</a>.
-    apply_for_account: Demander une invitation
+    agreement_html: En cliquant sur "S'inscrire" ci-dessous, vous souscrivez <a href="%{rules_path}">aux règles du serveur</a> et à <a href="%{terms_path}">nos conditions d’utilisation</a>.
     change_password: Mot de passe
-    checkbox_agreement_html: J'accepte les <a href="%{rules_path}" target="_blank">règles de l'instance</a> et les <a href="%{terms_path}" target="_blank">conditions d'utilisation</a>
     confirm_email: Confirmer mon adresse mail
     delete_account: Supprimer le compte
     delete_account_html: Si vous désirez supprimer votre compte, vous pouvez <a href="%{path}">cliquer ici</a>. Il vous sera demandé de confirmer cette action.
@@ -525,12 +499,10 @@ fr:
       cas: CAS
       saml: SAML
     register: S’inscrire
-    registration_closed: "%{instance} n'accepte pas de nouveaux membres"
     resend_confirmation: Envoyer à nouveau les consignes de confirmation
     reset_password: Réinitialiser le mot de passe
     security: Sécurité
     set_new_password: Définir le nouveau mot de passe
-    trouble_logging_in: Problèmes de connexion ?
   authorize_follow:
     already_following: Vous suivez déjà ce compte
     error: Malheureusement, il y a eu une erreur en cherchant les détails du compte distant
@@ -562,7 +534,7 @@ fr:
     description_html: Cela va supprimer votre compte et le désactiver de manière <strong>permanente et irréversible</strong>. Votre nom d’utilisateur⋅ice restera réservé afin d’éviter la confusion.
     proceed: Supprimer compte
     success_msg: Votre compte a été supprimé avec succès
-    warning_html: Seule la suppression du contenu depuis cette instance est garantie. Le contenu qui a été partagé est susceptible de laisser des traces. Les instances hors-ligne ainsi que celles n’étant plus abonnées à vos publications ne mettront pas leur base de données à jour.
+    warning_html: Seule la suppression du contenu depuis ce serveur est garantie. Le contenu qui a été partagé est susceptible de laisser des traces. Les serveurs hors-ligne ainsi que ceux n’étant plus abonnées à vos publications ne mettront pas leur base de données à jour.
     warning_title: Disponibilité du contenu disséminé
   directories:
     directory: Annuaire des profils
@@ -586,9 +558,6 @@ fr:
       content: Nous sommes désolé·e·s, mais quelque chose s’est mal passé de notre côté.
       title: Cette page n’est pas correcte
     noscript_html: Pour utiliser Mastodon, veuillez activer JavaScript. Sinon, essayez l’une des <a href="%{apps_path}">applications natives</a> pour Mastodon pour votre plate-forme.
-  existing_username_validator:
-    not_found: impossible de trouver un compte local avec ce nom
-    not_found_multiple: impossible de trouver %{usernames}
   exports:
     archive_takeout:
       date: Date
@@ -599,7 +568,7 @@ fr:
       size: Taille
     blocks: Vous bloquez
     csv: CSV
-    domain_blocks: Blocage de domaine
+    domain_blocks: Bloqueurs de domaine
     follows: Vous suivez
     lists: Listes
     mutes: Vous masquez
@@ -629,41 +598,23 @@ fr:
     more: Davantage…
     resources: Ressources
   generic:
-    all: Tout
     changes_saved_msg: Les modifications ont été enregistrées avec succès !
     copy: Copier
     save_changes: Enregistrer les modifications
     validation_errors:
       one: Quelque chose ne va pas ! Vérifiez l’erreur ci-dessous
       other: Certaines choses ne vont pas ! Vérifiez les %{count} erreurs ci-dessous
-  html_validator:
-    invalid_markup: contiens du code HTML invalide
-  identity_proofs:
-    active: Active
-    authorize: Oui, autoriser
-    authorize_connection_prompt: Autoriser cette connexion cryptographique ?
-    errors:
-      failed: La connexion cryptographique a échoué. Merci d’essayer de nouveau depuis %{provider}.
-      keybase:
-        invalid_token: Les jetons Keybase sont des hashs de signatures et doivent être 66 caractères hexa
-        verification_failed: Keybase ne reconnait pas ce jeton comme une signature de l’utilisateur·rice Keybase %{kb_username}. Merci de réessayer depuis Keybase.
-    explanation_html: Ici vous pouvez connecter cryptographiquement vos autres identités, telles qu’un profil Keybase. Ceci permet à d’autres personnes de vous envoyer des messages chiffrés et qu’elles aient confiance dans le contenu que vous leur envoyez.
-    i_am_html: Je suis %{username} sur %{service}.
-    identity: Identité
-    inactive: Inactive
-    status: Statut de la vérification
-    view_proof: Voir la preuve
   imports:
     modes:
       merge: Fusionner
       merge_long: Garder les enregistrements existants et ajouter les nouveaux
       overwrite: Réécrire
       overwrite_long: Remplacer les enregistrements actuels par les nouveaux
-    preface: Vous pouvez importer certaines données que vous avez exporté d'une autre instance, comme une liste des personnes que vous suivez ou bloquez sur votre compte.
+    preface: Vous pouvez importer certaines données que vous avez exporté d'un autre serveur, comme une liste des personnes que vous suivez ou bloquez sur votre compte.
     success: Vos données ont été importées avec succès et seront traitées en temps et en heure
     types:
       blocking: Liste d’utilisateur⋅ice⋅s bloqué⋅e⋅s
-      domain_blocking: Liste des instances bloquées
+      domain_blocking: Liste des serveurs bloquées
       following: Liste d’utilisateur⋅ice⋅s suivi⋅e⋅s
       muting: Liste d’utilisateur⋅ice⋅s que vous masquez
     upload: Importer
@@ -685,7 +636,7 @@ fr:
       one: 1 usage
       other: "%{count} usages"
     max_uses_prompt: Pas de limite
-    prompt: Générer et partager des liens avec les autres pour donner accès à cette instance
+    prompt: Générer et partager des liens avec les autres pour donner accès à ce serveur
     table:
       expires_at: Expire
       uses: Utilise
@@ -764,30 +715,19 @@ fr:
       expired: Ce sondage est déjà terminé
       over_character_limit: ne peuvent être plus long que %{max} caractères chacun
       too_few_options: doit avoir plus qu'une proposition
-      too_many_options: ne peut contenir plus de %{max} propositions
+      too_many_options: ne peut contenir plus que %{max} propositions
   preferences:
     languages: Langues
     other: Autre
     publishing: Publication
     web: Web
-  relationships:
-    activity: Activité du compte
-    dormant: Inactif
-    moved: Déplacé
-    mutual: Mutuel
-    primary: Primaire
-    relationship: Relation
-    remove_selected_domains: Retirer tous les abonné·e·s des instances sélectionnées
-    remove_selected_followers: Retirer les abonné·e·s sélectionné·e·s
-    remove_selected_follows: Ne plus suivre les utilisateur·ice·s sélectionné·e·s
-    status: Statut du compte
   remote_follow:
-    acct: Entrez l’adresse profil@instance depuis laquelle vous voulez vous abonner
+    acct: Entrez l’adresse profil@serveur depuis laquelle vous voulez vous abonner
     missing_resource: L’URL de redirection n’a pas pu être trouvée
     no_account_html: Vous n’avez pas de compte ? Vous pouvez <a href='%{sign_up_path}' target='_blank'>vous inscrire ici</a>
     proceed: Confirmer l’abonnement
     prompt: 'Vous allez suivre :'
-    reason_html: "<strong>Pourquoi cette étape est-elle nécessaire?</strong> <code>%{instance}</code> pourrait ne pas être l'instance où vous vous êtes inscrit, et nous devons donc vous rediriger vers votre instance de base en premier."
+    reason_html: "<strong>Pourquoi cette étape est-elle nécessaire?</strong> <code>%{instance}</code> pourrait ne pas être le serveur où vous vous êtes inscrit, et nous devons donc vous rediriger vers votre serveur de base en premier."
   remote_interaction:
     favourite:
       proceed: Confirmer l'ajout aux favoris
@@ -855,12 +795,10 @@ fr:
     edit_profile: Modifier le profil
     export: Export de données
     featured_tags: Hashtags mis en avant
-    identity_proofs: Preuves d’identité
     import: Import de données
     migrate: Migration de compte
     notifications: Notifications
     preferences: Préférences
-    relationships: Abonnements et abonné·e·s
     settings: Réglages
     two_factor_authentication: Identification à deux facteurs
     your_apps: Vos applications
@@ -1022,7 +960,7 @@ fr:
         disable: Lorsque votre compte est gelé, les données de votre compte demeurent intactes, mais vous ne pouvez effectuer aucune action jusqu'à ce qu'il soit débloqué.
         silence: Lorsque votre compte est limité, seulement les utilisateurs qui vous suivent déjà verront vos pouets sur ce serveur, et vous pourriez être exclu de plusieurs listes publiques. Néanmoins, d'autres utilisateurs peuvent vous suivre manuellement.
         suspend: Votre compte a été suspendu, et tous vos pouets et vos fichiers multimédia téléversés ont été supprimés irréversiblement de ce serveur, et des serveurs où vous aviez des abonné⋅e⋅s.
-      review_server_policies: Passer en revue les politiques de l'instance
+      review_server_policies: Passer en revue les politiques du serveur
       subject:
         disable: Votre compte %{acct} a été gelé
         none: Avertissement pour %{acct}
@@ -1040,7 +978,7 @@ fr:
       final_action: Commencer à publier
       final_step: 'Commencez à poster ! Même sans abonné·e·s, vos messages publics peuvent être vus par d’autres, par exemple sur le fil public local et dans les hashtags. Vous pouvez vous présenter sur le hashtag #introductions.'
       full_handle: Votre identifiant complet
-      full_handle_hint: C’est ce que vous diriez à vos ami·e·s pour leur permettre de vous envoyer un message ou vous suivre à partir d’une autre instance.
+      full_handle_hint: C’est ce que vous diriez à vos ami·e·s pour leur permettre de vous envoyer un message ou vous suivre à partir d’un autre serveur.
       review_preferences_action: Modifier les préférences
       review_preferences_step: Assurez-vous de définir vos préférences, telles que les courriels que vous aimeriez recevoir ou le niveau de confidentialité auquel vous aimeriez que vos messages soient soumis par défaut. Si vous n’avez pas le mal des transports, vous pouvez choisir d’activer la lecture automatique des GIF.
       subject: Bienvenue sur Mastodon

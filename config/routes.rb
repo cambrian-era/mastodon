@@ -214,6 +214,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :pending_accounts, only: [:index, :update] do
+      collection do
+        post :approve_all
+        post :reject_all
+      end
+    end
+
     resources :users, only: [] do
       resource :two_factor_authentication, only: [:destroy]
     end
@@ -354,6 +361,7 @@ Rails.application.routes.draw do
         resources :followers, only: :index, controller: 'accounts/follower_accounts'
         resources :following, only: :index, controller: 'accounts/following_accounts'
         resources :lists, only: :index, controller: 'accounts/lists'
+        resources :identity_proofs, only: :index, controller: 'accounts/identity_proofs'
 
         member do
           post :follow

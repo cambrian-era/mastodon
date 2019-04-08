@@ -14,7 +14,7 @@ class ProofProvider::Keybase::ConfigSerializer < ActiveModel::Serializer
   end
 
   def domain
-    Rails.configuration.x.local_domain
+    ProofProvider::Keybase::DOMAIN
   end
 
   def display_name
@@ -34,7 +34,7 @@ class ProofProvider::Keybase::ConfigSerializer < ActiveModel::Serializer
   end
 
   def username
-    { min: 1, max: 30, re: '[a-z0-9_]+([a-z0-9_\.-]+[a-z0-9_]+)?' }
+    { min: 1, max: 30, re: '[a-z0-9_]+([a-z0-9_.-]+[a-z0-9_]+)?' }
   end
 
   def prefill_url
@@ -66,6 +66,6 @@ class ProofProvider::Keybase::ConfigSerializer < ActiveModel::Serializer
   end
 
   def contact
-    [Setting.site_contact_email.presence].compact
+    [Setting.site_contact_email.presence || 'unknown'].compact
   end
 end
