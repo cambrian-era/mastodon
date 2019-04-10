@@ -22,9 +22,9 @@ module Mastodon
 
     def flags
 <<<<<<< HEAD
-      ['radical']
+      ['radical','rc1']
 =======
-      'rc1'
+      ''
 >>>>>>> Github-official/master
     end
 
