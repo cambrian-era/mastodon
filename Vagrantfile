@@ -28,6 +28,7 @@ sudo apt-get install \
   libxml2-dev \
   libxslt1-dev \
   imagemagick \
+  ffmpeg \
   nodejs \
   redis-server \
   redis-tools \

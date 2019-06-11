@@ -14,6 +14,18 @@
 
   .fields-group
     = f.input :setting_advanced_layout, as: :boolean, wrapper: :with_label, hint: false
+  
+  %h4= t 'appearance.markdown'
+
+  %p.hint= t 'appearance.enable_markdown_hint'
+
+  = f.input :setting_enable_markdown, as: :boolean, wrapper: :with_label, hint: false, recommended: true
+
+  %h4= t 'appearance.customization'
+
+  %p.hint= t 'appearance.column_width_hint'
+
+  = f.input :setting_column_width, collection: ['column-original', 'column-relaxed', 'column-wide'], label_method: lambda { |width| I18n.t("column_widths.#{width}", default: width) }, wrapper: :with_block_label, hint: false, include_blank: false
 
   %h4= t 'appearance.animations_and_accessibility'
 

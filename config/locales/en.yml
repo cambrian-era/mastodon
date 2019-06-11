@@ -502,6 +502,8 @@ en:
   appearance:
     advanced_web_interface: Advanced web interface
     advanced_web_interface_hint: 'If you want to make use of your entire screen width, the advanced web interface allows you to configure many different columns to see as much information at the same time as you want: Home, notifications, federated timeline, any number of lists and hashtags.'
+    column_width_hint: Determines the default column width on the advanced desktop web interface
+    enable_markdown_hint: Markdown support only works in the web interface by default
     animations_and_accessibility: Animations and accessibility
     confirmation_dialogs: Confirmation dialogs
     sensitive_content: Sensitive content

@@ -34,8 +34,6 @@ en:
         setting_hide_network: Who you follow and who follows you will not be shown on your profile
         setting_noindex: Affects your public profile and status pages
         setting_show_application: The application you use to toot will be displayed in the detailed view of your toots
-        setting_column_width: Determines the default column width on the desktop web interface
-        setting_enable_markdown: Markdown support only works in the web interface by default
         username: Your username will be unique on %{domain}
         whole_word: When the keyword or phrase is alphanumeric only, it will only be applied if it matches the whole word
       featured_tag:
