@@ -32,6 +32,7 @@ defaults: &defaults
   theme: 'default'
   aggregate_reblogs: true
   enable_markdown: false
+  advanced_layout: false
   column_width: 'column_relaxed'
   notification_emails:
     follow: false

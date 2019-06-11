@@ -35,6 +35,7 @@ class UserSettingsDecorator
     user.settings['aggregate_reblogs']   = aggregate_reblogs_preference if change?('setting_aggregate_reblogs')
     user.settings['column_width']        = column_width_preference if change?('setting_column_width')
     user.settings['show_application']    = show_application_preference if change?('setting_show_application')
+    user.settings['advanced_layout']     = advanced_layout_preference if change?('setting_advanced_layout')
   end
 
   def merged_notification_emails
@@ -115,6 +116,10 @@ class UserSettingsDecorator
 
   def column_width_preference
     settings['setting_column_width']
+  end
+
+  def advanced_layout_preference
+    boolean_cast_setting 'setting_advanced_layout'
   end
 
   def boolean_cast_setting(key)
