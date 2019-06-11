@@ -10,8 +10,19 @@ class GifEmbedService < BaseService
       .accept(:json) # Download the GIF information.
       .get("http://api.giphy.com/v1/gifs/#{id}", :params => {
         :api_key => ENV['GIPHY_API_KEY']
-      }) 
-    gif_url = JSON.parse(info_http.body().to_s)['data']['images']['original']['url']
+      })
+    gif_info = JSON.parse(info_http.body().to_s)
+    gif_image = 'original'
+
+    if Integer(gif_info['data']['images'][gif_image]['size']) > 8000000
+      gif_image = 'downsized_medium'
+    end
+
+    if Integer(gif_info['data']['images'][gif_image]['size']) > 8000000
+      gif_image = 'downsized_small'
+    end
+
+    gif_url = gif_info['data']['images'][gif_image]['url']
 
     media_http = HTTP
       .accept('image/*')
