@@ -13,11 +13,7 @@ module Mastodon
     end
 
     def patch
-<<<<<<< HEAD
-      4
-=======
       0
->>>>>>> Github-official/master
     end
 
     def pre
@@ -26,10 +22,10 @@ module Mastodon
 
     def flags
 <<<<<<< HEAD
-      ['radical']
+      ['radical','rc1']
 =======
-      'rc1'
->>>>>>> Github-official/master
+      ''
+>>>>>>> Github-official/bump-version
     end
 
     def to_a
