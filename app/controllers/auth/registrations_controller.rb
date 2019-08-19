@@ -9,14 +9,7 @@ class Auth::RegistrationsController < Devise::RegistrationsController
   before_action :set_sessions, only: [:edit, :update]
   before_action :set_instance_presenter, only: [:new, :create, :update]
   before_action :set_body_classes, only: [:new, :create, :edit, :update]
-
-  @captcha_on = ActiveModel::Type::Boolean.new.cast(ENV['RECAPTCHA'])
-
-  # We need to modify the CSP in order to get the reCaptcha code.
-  if @captcha_on
-    after_action :set_csp, only: [:new, :create]
-  end
-  
+ 
   def new
     super(&:build_invite_request)
   end
@@ -27,59 +20,29 @@ class Auth::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    # Strip the user params of the recaptcha token.
-    token = params["user"]["recaptcha_token"]
-    params["user"].delete("recaptcha_token")
-
     build_resource(sign_up_params)
 
-    if check_captcha(token)
-      resource.save
+    resource.save
 
-      yield resource if block_given?
-      if resource.persisted?
-        if resource.active_for_authentication?
-          set_flash_message! :notice, :signed_up
-          sign_up(resource_name, resource)
-          respond_with resource, location: after_sign_up_path_for(resource)
-        else
-          set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-          expire_data_after_sign_in!
-          respond_with resource, location: after_inactive_sign_up_path_for(resource)
-        end
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message! :notice, :signed_up
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
       else
-        clean_up_passwords resource
-        set_minimum_password_length
-        respond_with resource
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
-      render :captcha_fail
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
     end
   end
 
   protected
-
-  def check_captcha(token)
-    # Return true if we're bypassing captcha.
-    if !@captcha_on
-      return true
-    end
-
-    response = RecaptchaService.new.call({
-      recaptcha_token: token,
-      ip: request.remote_ip
-    })
-
-    captcha_response = JSON.parse(response.body)
-
-    logger.info "Address: #{request.remote_ip} returned a score of #{captcha_response["score"]}"
-
-    if (captcha_response['success'] == true && captcha_response['score'].to_f() > ENV['RECAPTCHA_SCORE_THRESHOLD'].to_f()) then
-      return true
-    else
-      return false
-    end
-  end
 
   def update_resource(resource, params)
     params[:password] = nil if Devise.pam_authentication && resource.encrypted_password.blank?
@@ -98,7 +61,7 @@ class Auth::RegistrationsController < Devise::RegistrationsController
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit({ account_attributes: [:username], invite_request_attributes: [:text] }, :email, :password, :password_confirmation, :invite_code, :recaptcha_token)
+      u.permit({ account_attributes: [:username], invite_request_attributes: [:text] }, :email, :password, :password_confirmation, :invite_code)
     end
   end
 
@@ -161,9 +124,5 @@ class Auth::RegistrationsController < Devise::RegistrationsController
 
   def set_sessions
     @sessions = current_user.session_activations
-  end
-
-  def set_csp
-    response.set_header('Content-Security-Policy', "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/")
   end
 end

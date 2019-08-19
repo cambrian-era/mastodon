@@ -1,7 +1,5 @@
 default: &default
   giphy_api_key: <% ENV['GIPHY_API_KEY'] %>
-  recaptcha_site_key: <% ENV['RECAPTCHA_SITE_KEY'] %>
-  recaptcha_secret_key: <% ENV['RECAPTCHA_SECRET_KEY'] %>
 
 production:
   <<: *default
