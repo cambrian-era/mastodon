@@ -4,3 +4,4 @@ mastodon-light: styles/mastodon-light.scss
 synthwave: styles/synthwave.scss
 chillstep: styles/chillstep.scss
 demogorgon: styles/demogorgon.scss
+dx7: styles/dx7.scss

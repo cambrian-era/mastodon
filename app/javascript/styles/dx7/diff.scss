@@ -1,0 +1,109 @@
+body {
+  font-family: 'Helvetica', 'mastodon-font-sans-serif', sans-serif;
+  font-size: 16px;
+}
+
+.getting-started__footer {
+  line-height: 1.4em;
+}
+
+.drawer__header {
+  margin-bottom: 0;
+}
+
+.search {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 24px;
+}
+
+.button {
+  border-radius: 1px;
+  color: $ui-base-color;
+  text-align: right;
+}
+
+.column-header__button {
+  background: $ui-primary-color;
+  margin: 5px;
+  color: $ui-base-color;
+  border-radius: 2px;
+}
+
+.drawer__tab {
+  margin: 5px;
+  background: darken($ui-base-color, 20%);
+  border-radius: 4px;
+  border-top: 2px solid lighten($ui-base-color, 20%);
+  border-bottom: 2px solid darken($ui-base-color, 40%);
+  border-left: 2px solid lighten($ui-base-color, 20%);
+  border-right: 2px solid darken($ui-base-color, 40%);
+}
+
+.drawer {
+  padding: 0;
+  border-top: 2px solid lighten($ui-base-lighter-color, 20%);
+  border-right: 2px solid darken($ui-base-lighter-color, 40%);
+  box-shadow: 2px 2px 4px $black;
+  z-index: 2;
+}
+
+.drawer:first-child {
+  padding-left: 0;
+}
+
+.column-header {
+  text-transform: uppercase;
+  font-stretch: condensed;
+  border-top: 2px solid lighten($ui-base-lighter-color, 20%);
+  border-bottom: 2px solid darken($ui-base-lighter-color, 40%);
+  box-shadow: 2px 2px 4px $black;
+}
+
+
+
+.column {
+  padding: 0;
+  border-left: 2px solid lighten($ui-base-color, 20%);
+  border-right: 2px solid darken($ui-base-color, 40%);
+}
+
+.status__wrapper {
+  margin-bottom: 10px;
+}
+
+.media-modal__nav {
+  color: $ui-highlight-color;
+}
+
+.poll__chart {
+  background: $dark-text-color;
+}
+
+.column:last-child, .drawer:last-child {
+  padding-right: 10px;
+}
+
+.columns-area__panels {
+  background-color: #151515;
+}
+
+.compose-form .compose-form__buttons-wrapper {
+  border-radius: 2px;
+}
+
+.compose-form .autosuggest-textarea__textarea {
+  border-radius: 2px;
+}
+
+.compose-form {
+  border-bottom: 2px solid lighten($ui-base-color, 20%);
+  border-top: 2px solid darken($ui-base-color, 40%);
+  border-right: 2px solid lighten($ui-base-color, 20%);
+  border-left: 2px solid darken($ui-base-color, 40%);
+}
+
+.search__input {
+  border-bottom: 2px solid lighten($ui-base-color, 20%);
+  border-top: 2px solid darken($ui-base-color, 40%);
+}
