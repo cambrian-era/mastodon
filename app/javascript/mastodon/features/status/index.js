@@ -84,28 +84,38 @@ const makeMapStateToProps = () => {
   const getDescendantsIds = createSelector([
     (_, { id }) => id,
     state => state.getIn(['contexts', 'replies']),
-  ], (statusId, contextReplies) => {
-    let descendantsIds = Immutable.List();
-    descendantsIds = descendantsIds.withMutations(mutable => {
-      const ids = [statusId];
+    state => state.get('statuses'),
+  ], (statusId, contextReplies, statuses) => {
+    let descendantsIds = [];
+    const ids = [statusId];
 
-      while (ids.length > 0) {
-        let id        = ids.shift();
-        const replies = contextReplies.get(id);
+    while (ids.length > 0) {
+      let id        = ids.shift();
+      const replies = contextReplies.get(id);
 
-        if (statusId !== id) {
-          mutable.push(id);
-        }
-
-        if (replies) {
-          replies.reverse().forEach(reply => {
-            ids.unshift(reply);
-          });
-        }
+      if (statusId !== id) {
+        descendantsIds.push(id);
       }
-    });
 
-    return descendantsIds;
+      if (replies) {
+        replies.reverse().forEach(reply => {
+          ids.unshift(reply);
+        });
+      }
+    }
+
+    let insertAt = descendantsIds.findIndex((id) => statuses.get(id).get('in_reply_to_account_id') !== statuses.get(id).get('account'));
+    if (insertAt !== -1) {
+      descendantsIds.forEach((id, idx) => {
+        if (idx > insertAt && statuses.get(id).get('in_reply_to_account_id') === statuses.get(id).get('account')) {
+          descendantsIds.splice(idx, 1);
+          descendantsIds.splice(insertAt, 0, id);
+          insertAt += 1;
+        }
+      });
+    }
+
+    return Immutable.List(descendantsIds);
   });
 
   const mapStateToProps = (state, props) => {
@@ -146,6 +156,7 @@ class Status extends ImmutablePureComponent {
     descendantsIds: ImmutablePropTypes.list,
     intl: PropTypes.object.isRequired,
     askReplyConfirmation: PropTypes.bool,
+    multiColumn: PropTypes.bool,
     domain: PropTypes.string.isRequired,
   };
 
@@ -437,13 +448,13 @@ class Status extends ImmutablePureComponent {
 
   render () {
     let ancestors, descendants;
-    const { shouldUpdateScroll, status, ancestorsIds, descendantsIds, intl, domain } = this.props;
+    const { shouldUpdateScroll, status, ancestorsIds, descendantsIds, intl, domain, multiColumn } = this.props;
     const { fullscreen } = this.state;
 
     if (status === null) {
       return (
         <Column>
-          <ColumnBackButton />
+          <ColumnBackButton multiColumn={multiColumn} />
           <MissingIndicator />
         </Column>
       );
@@ -470,9 +481,10 @@ class Status extends ImmutablePureComponent {
     };
 
     return (
-      <Column label={intl.formatMessage(messages.detailedStatus)}>
+      <Column bindToDocument={!multiColumn} label={intl.formatMessage(messages.detailedStatus)}>
         <ColumnHeader
           showBackButton
+          multiColumn={multiColumn}
           extraButton={(
             <button className='column-header__button' title={intl.formatMessage(status.get('hidden') ? messages.revealAll : messages.hideAll)} aria-label={intl.formatMessage(status.get('hidden') ? messages.revealAll : messages.hideAll)} onClick={this.handleToggleAll} aria-pressed={status.get('hidden') ? 'false' : 'true'}><Icon id={status.get('hidden') ? 'eye-slash' : 'eye'} /></button>
           )}

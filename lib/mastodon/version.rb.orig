@@ -1,0 +1,68 @@
+# frozen_string_literal: true
+
+module Mastodon
+  module Version
+    module_function
+
+    def major
+      3
+    end
+
+    def minor
+      0
+    end
+
+    def patch
+<<<<<<< HEAD
+      3
+=======
+      0
+    end
+
+    def flags
+      'rc1'
+>>>>>>> 5034418e2c41fbd51fc85458dd3fdba72a672625
+    end
+
+    def suffix
+      ''
+    end
+
+    def suffix
+      'radical'
+    end
+
+    def to_a
+      [major, minor, patch].compact
+    end
+
+    def to_s
+      [to_a.join('.'), flags, suffix].join
+    end
+
+    def repository
+      'cambrian-era/mastodon'
+    end
+
+    def source_base_url
+      ENV.fetch('SOURCE_BASE_URL') { "https://github.com/#{repository}" }
+    end
+
+    # specify git tag or commit hash here
+    def source_tag
+      ENV.fetch('SOURCE_TAG') { nil }
+    end
+
+    def source_url
+      if source_tag
+        "#{source_base_url}/tree/#{source_tag}"
+      else
+        source_base_url
+      end
+    end
+
+    def user_agent
+      @user_agent ||= "#{HTTP::Request::USER_AGENT} (Mastodon/#{Version}; +http#{Rails.configuration.x.use_https ? 's' : ''}://#{Rails.configuration.x.web_domain}/)"
+    end
+  end
+end

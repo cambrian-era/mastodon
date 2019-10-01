@@ -41,8 +41,9 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
 
     resolve_thread(@status)
     fetch_replies(@status)
+    check_for_spam
     distribute(@status)
-    forward_for_reply if @status.public_visibility? || @status.unlisted_visibility?
+    forward_for_reply if @status.distributable?
   end
 
   def find_existing_status
@@ -147,12 +148,9 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
   def process_hashtag(tag)
     return if tag['name'].blank?
 
-    hashtag = tag['name'].gsub(/\A#/, '').mb_chars.downcase
-    hashtag = Tag.where(name: hashtag).first_or_create!(name: hashtag)
-
-    return if @tags.include?(hashtag)
-
-    @tags << hashtag
+    Tag.find_or_create_by_names(tag['name']) do |hashtag|
+      @tags << hashtag unless @tags.include?(hashtag)
+    end
   rescue ActiveRecord::RecordInvalid
     nil
   end
@@ -191,22 +189,25 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
     media_attachments = []
 
     as_array(@object['attachment']).each do |attachment|
-      next if attachment['url'].blank?
+      next if attachment['url'].blank? || media_attachments.size >= 4
 
-      href             = Addressable::URI.parse(attachment['url']).normalize.to_s
-      media_attachment = MediaAttachment.create(account: @account, remote_url: href, description: attachment['name'].presence, focus: attachment['focalPoint'], blurhash: supported_blurhash?(attachment['blurhash']) ? attachment['blurhash'] : nil)
-      media_attachments << media_attachment
+      begin
+        href             = Addressable::URI.parse(attachment['url']).normalize.to_s
+        media_attachment = MediaAttachment.create(account: @account, remote_url: href, description: attachment['name'].presence, focus: attachment['focalPoint'], blurhash: supported_blurhash?(attachment['blurhash']) ? attachment['blurhash'] : nil)
+        media_attachments << media_attachment
 
-      next if unsupported_media_type?(attachment['mediaType']) || skip_download?
+        next if unsupported_media_type?(attachment['mediaType']) || skip_download?
 
-      media_attachment.file_remote_url = href
-      media_attachment.save
+        media_attachment.file_remote_url = href
+        media_attachment.save
+      rescue Mastodon::UnexpectedResponseError, HTTP::TimeoutError, HTTP::ConnectionError, OpenSSL::SSL::SSLError
+        RedownloadMediaWorker.perform_in(rand(30..600).seconds, media_attachment.id)
+      end
     end
 
     media_attachments
   rescue Addressable::URI::InvalidURIError => e
-    Rails.logger.debug e
-
+    Rails.logger.debug "Invalid URL in attachment: #{e}"
     media_attachments
   end
 
@@ -406,23 +407,8 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
     Account.local.where(username: local_usernames).exists?
   end
 
-  def related_to_local_activity?
-    fetch? || followed_by_local_accounts? || requested_through_relay? ||
-      responds_to_followed_account? || addresses_local_accounts?
-  end
-
-  def responds_to_followed_account?
-    !replied_to_status.nil? && (replied_to_status.account.local? || replied_to_status.account.passive_relationships.exists?)
-  end
-
-  def addresses_local_accounts?
-    return true if @options[:delivered_to_account_id]
-
-    local_usernames = (as_array(@object['to']) + as_array(@object['cc'])).uniq.select { |uri| ActivityPub::TagManager.instance.local_uri?(uri) }.map { |uri| ActivityPub::TagManager.instance.uri_to_local_id(uri, :username) }
-
-    return false if local_usernames.empty?
-
-    Account.local.where(username: local_usernames).exists?
+  def check_for_spam
+    SpamCheck.perform(@status)
   end
 
   def forward_for_reply

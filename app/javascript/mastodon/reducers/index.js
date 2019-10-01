@@ -31,6 +31,8 @@ import conversations from './conversations';
 import suggestions from './suggestions';
 import polls from './polls';
 import identity_proofs from './identity_proofs';
+import trends from './trends';
+import missed_updates from './missed_updates';
 
 // Radical Town Extensions
 import gif_search from './gif_search';
@@ -69,6 +71,8 @@ const reducers = {
   suggestions,
   gif_search,
   polls,
+  trends,
+  missed_updates,
 };
 
 export default combineReducers(reducers);
