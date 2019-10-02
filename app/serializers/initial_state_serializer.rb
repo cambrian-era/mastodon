@@ -21,8 +21,8 @@ class InitialStateSerializer < ActiveModel::Serializer
       invites_enabled: Setting.min_invite_role == 'user',
       mascot: instance_presenter.mascot&.file&.url,
       profile_directory: Setting.profile_directory,
-      gif_search_enabled: gif_search_enabled?
-      trends: Setting.trends,
+      gif_search_enabled: gif_search_enabled?,
+      trends: Setting.trends
     }
 
     if object.current_account
