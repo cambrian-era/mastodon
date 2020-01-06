@@ -5,7 +5,7 @@ class REST::InstanceSerializer < ActiveModel::Serializer
 
   attributes :uri, :title, :short_description, :description, :email,
              :version, :urls, :stats, :thumbnail,
-             :languages, :registrations, :approval_required
+             :languages, :max_toot_chars, :registrations, :approval_required
 
   has_one :contact_account, serializer: REST::AccountSerializer
 
@@ -53,6 +53,10 @@ class REST::InstanceSerializer < ActiveModel::Serializer
 
   def languages
     [I18n.default_locale]
+  end
+
+  def max_toot_chars
+    1000
   end
 
   def registrations
