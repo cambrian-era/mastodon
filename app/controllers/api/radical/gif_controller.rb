@@ -1,5 +1,4 @@
 class Api::Radical::GifController < Api::BaseController
-  include ObfuscateFilename
 
   before_action -> { doorkeeper_authorize! :write, :'write:media' }
   before_action :require_user!
