@@ -149,7 +149,7 @@ class REST::StatusSerializer < ActiveModel::Serializer
     end
 
     def acct
-      object.account_acct
+      object.account.pretty_acct
     end
   end
 
