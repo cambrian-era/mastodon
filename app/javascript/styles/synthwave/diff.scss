@@ -75,3 +75,15 @@ body {
 .button {
   text-shadow: 0 0 4px rgb(255, 235, 119);
 }
+
+.relationship-tag {
+  color: $dark-text-color;
+}
+
+.spoiler-button__overlay__label {
+  color: $dark-text-color;
+}
+
+.icon-button.overlayed {
+  color: $dark-text-color;
+}
